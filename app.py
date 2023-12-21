@@ -1,3 +1,4 @@
+import sqlite3
 from urllib import request
 
 from flask import Flask, url_for
@@ -17,31 +18,46 @@ def register():
 
 @app.get('/shop/items/<item_id>')
 def get_items(item_id):
-    return f'items_info {item_id}'
+    my_db = sqlite3.connect('identifier.sqlite')
+    cursor = my_db.cursor()
+    cursor.execute(f'SELECT * FROM Item WHERE id = {item_id}')
+    item_data = cursor.fetchall()
+    return item_data
 
 
 @app.route('/shop/items/<item_id>/review', methods=['POST', 'GET'])
 def create_read_reviews(item_id):
     if request.methods == 'GET':
-        return f'reviews_info {item_id}'
+        my_db = sqlite3.connect('identifier.sqlite')
+        cursor = my_db.cursor()
+        cursor.execute(f'SELECT * FROM feedback WHERE id = {item_id}')
+        item_reviews = cursor.fetchall()
+        return item_reviews
     else:
         return f'post_review_status {item_id}'
 
 
 @app.route('/shop/items/<item_id>/review/<review_id>', methods=['GET', 'PUT'])
-def full_review(review_id):
+def full_review(review_id, item_id):
     if request.methods == 'GET':
-        return f'review {review_id}'
+        my_db = sqlite3.connect('identifier.sqlite')
+        cursor = my_db.cursor()
+        cursor.execute(f'SELECT * FROM feedback WHERE item_id = {item_id} and feeedback_id = {review_id}')
+        full_review = cursor.fetchall()
+        return full_review
     else:
         return f'edit_review_status {review_id}'
 
 
 @app.get('/shop/items/')
 def items_page():
-    category = request.args.get('category')
-    order = request.args.get('order')
     page = request.args.get('page')
-    return f'items/{category, order, page}'
+    my_db = sqlite3.connect('identifier.sqlite')
+    cursor = my_db.cursor()
+    cursor.execute(f'SELECT category FROM Item')
+    cursor.execute(f'SELECT order_total_price FROM "Order"')
+    items_page = cursor.fetchall()
+    return items_page, page
 
 
 @app.post('/shop/search/')
@@ -51,7 +67,11 @@ def search():
 
 @app.get('/shop/cart/')
 def get_cart_info():
-    return 'cart_list'
+    my_db = sqlite3.connect('identifier.sqlite')
+    cursor = my_db.cursor()
+    cursor.execute(f'SELECT * FROM Cart')
+    cart = cursor.fetchall()
+    return cart
 
 
 @app.route('/shop/cart', methods=['POST', 'PUT'])
@@ -70,7 +90,11 @@ def delete_items_from_cart():
 @app.route('/shop/cart/order', methods=['POST', 'GET'])
 def edit_oder_form():
     if request.methods == 'GET':
-        return 'order_form'
+        my_db = sqlite3.connect('identifier.sqlite')
+        cursor = my_db.cursor()
+        cursor.execute(f'SELECT * FROM "Order"')
+        order_form = cursor.fetchall()
+        return order_form
     else:
         return 'form_status'
 
@@ -78,7 +102,11 @@ def edit_oder_form():
 @app.route('/shop/favorites/<list_id>', methods=['GET', 'PUT'])
 def favorites_update(list_id):
     if request.methods == 'GET':
-        return f'list{list_id}'
+        my_db = sqlite3.connect('identifier.sqlite')
+        cursor = my_db.cursor()
+        cursor.execute(f'SELECT * FROM wishlist WHERE list_id = {list_id}')
+        favorites = cursor.fetchall()
+        return favorites
     else:
         return f'list_status{list_id}'
 
@@ -91,7 +119,11 @@ def favorites():
 @app.route('/shop/waitlist', methods=['GET', 'POST'])
 def waitlist():
     if request.methods == 'GET':
-        return 'item_status'
+        my_db = sqlite3.connect('identifier.sqlite')
+        cursor = my_db.cursor()
+        cursor.execute(f'SELECT * FROM waitlist')
+        waitlist = cursor.fetchall()
+        return waitlist
     else:
         return 'add_item_status'
 
@@ -99,7 +131,11 @@ def waitlist():
 @app.route('/shop/compare/<cmp_id>', methods=['GET', 'PUT'])
 def compare_update(cmp_id):
     if request.methods == 'GET':
-        return f'compare_info{cmp_id}'
+        my_db = sqlite3.connect('identifier.sqlite')
+        cursor = my_db.cursor()
+        cursor.execute(f'SELECT * FROM compare WHERE cmp_id = {cmp_id}')
+        compare = cursor.fetchall()
+        return compare
     else:
         return f'change_compare_status{cmp_id}'
 
@@ -112,7 +148,11 @@ def add_to_compare():
 @app.route('/admin/items', methods=['POST', 'GET'])
 def items_update():
     if request.methods == 'GET':
-        return 'items_info'
+        my_db = sqlite3.connect('identifier.sqlite')
+        cursor = my_db.cursor()
+        cursor.execute(f'SELECT * FROM Item')
+        items = cursor.fetchall()
+        return items
     else:
         return 'items_post_status'
 
@@ -120,7 +160,11 @@ def items_update():
 @app.route('/admin/items/<item_id>', methods=['GET', 'PUT', 'DELETE'])
 def item_update(item_id):
     if request.methods == 'GET':
-        return f'item_info{item_id}'
+        my_db = sqlite3.connect('identifier.sqlite')
+        cursor = my_db.cursor()
+        cursor.execute(f'SELECT * FROM Item WHERE id = {item_id}')
+        item = cursor.fetchall()
+        return item
     elif request.methods == 'PUT':
         return f'change_item_info{item_id}'
     else:
@@ -129,7 +173,11 @@ def item_update(item_id):
 
 @app.get('/admin/orders')
 def orders_info():
-    return 'orders_info'
+    my_db = sqlite3.connect('identifier.sqlite')
+    cursor = my_db.cursor()
+    cursor.execute(f'SELECT * FROM "Order"')
+    orders = cursor.fetchall()
+    return orders
 
 
 @app.put('/admin/orders/<order_id>')
@@ -139,7 +187,11 @@ def change_order_info(order_id):
 
 @app.get('/admin/stat')
 def stat():
-    return 'stat'
+    my_db = sqlite3.connect('identifier.sqlite')
+    cursor = my_db.cursor()
+    cursor.execute(f'SELECT status FROM "Order"')
+    status = cursor.fetchall()
+    return status
 
 
 @app.put('/user')
