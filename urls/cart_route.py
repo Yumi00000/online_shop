@@ -37,8 +37,15 @@ def add_items_to_cart():
 
 @cart_blueprint.route('/shop/cart/delete', methods=['POST'])
 def delete_items_from_cart():
+    login = session.get('login')
+    current_user = load_from_db('*', 'User', {'login': login})[0][0]
     item_id = request.form.get('id')
-    delete_data_from_db('Cart', 'item_id', item_id)
+    quantity_result = load_from_db('quantity', 'Cart', {'user_login': current_user, 'item_id': item_id})
+    quantity = quantity_result[0][0]
+    if quantity > 1:
+        update_data_in_db('Cart', {'quantity': quantity - 1}, {'user_login': current_user, 'item_id': item_id})
+    else:
+        delete_data_from_db('Cart', 'item_id', item_id)
     return redirect('/shop/cart')
 
 
