@@ -33,7 +33,9 @@
     {% else %}
         <h3>Your cart is empty</h3>
     {% endif %}
-
+    <div class="login-logout">
+        <button class="back-button" onclick="navigateToOrder()">Order</button>
+    </div>
     <div class="login-logout">
         <button class="back-button" onclick="navigateToItems()">Back to Items</button>
     </div>
@@ -42,6 +44,9 @@
 <script>
     function navigateToItems() {
         window.location.href = "/shop/items";
+    }
+    function navigateToOrder() {
+        window.location.href = "/shop/cart/order"
     }
 </script>
 </body>

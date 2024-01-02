@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Compare Items</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+<div class="compare-container">
+    <h1>Compare Items</h1>
+
+    {% if login %}
+        <table>
+            <thead>
+            <tr>
+                <th>Item ID</th>
+                <th>Item Name</th>
+                <th>Description</th>
+                <th>Price</th>
+                <!-- Add more columns as needed -->
+            </tr>
+            </thead>
+            <tbody>
+            {% for item in compare %}
+                <tr>
+                    <td>{{ item[1] }}</td>
+                    <td>{{ item[4] }}</td>
+                    <td>{{ item[5] }}</td>
+                    <td>${{ item[6] }}</td>
+                    <!-- Add more columns as needed -->
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <h3>No items to compare</h3>
+    {% endif %}
+
+    <div class="login-logout">
+        <button class="back-button" onclick="navigateToItems()">Back to Items</button>
+    </div>
+</div>
+
+<script>
+    function navigateToItems() {
+        window.location.href = "/shop/items";
+    }
+</script>
+</body>
+</html>

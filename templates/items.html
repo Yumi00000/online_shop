@@ -17,6 +17,8 @@
     {% if current_user %}
         <p>Hello {{ current_user[1] }}</p>
     {% endif %}
+    <a href="/shop/favorites" class="item_page_bottom">Wishlist</a>
+    <a href="/shop/waitlist" class="item_page_bottom">Wait list</a>
     {% for item in items %}
         <div class="item">
 

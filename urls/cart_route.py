@@ -39,6 +39,7 @@ def add_items_to_cart():
 def delete_items_from_cart():
     login = session.get('login')
     current_user = load_from_db('*', 'User', {'login': login})[0][0]
+
     item_id = request.form.get('id')
     quantity_result = load_from_db('quantity', 'Cart', {'user_login': current_user, 'item_id': item_id})
     quantity = quantity_result[0][0]
@@ -51,7 +52,8 @@ def delete_items_from_cart():
 
 @cart_blueprint.route('/shop/cart/order', methods=['POST', 'GET'])
 def edit_oder_form():
+    login = session.get('login')
+    current_user = load_from_db('*', 'User', {'login': login})[0][0]
     if request.method == 'GET':
-        load_from_db('*', 'Order')
-    else:
-        insert_data_in_db('Order', ['3', 'johndoe', '456 Oak St', '60', 'Pending'])
+
+        return render_template('order_form.html', current_user=current_user)

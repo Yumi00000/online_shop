@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Your Favorites</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+<div class="favorites-container">
+    <h1>Your Favorites</h1>
+    {% if login %}
+        <p>Hello, {{ login }}!</p>
+        {% if favorites %}
+            <div class="favorites-list">
+                {% for favorite in favorites %}
+                    <div class="favorite-item">
+                        <h3>Item Name: {{ favorite[5] }}</h3>
+                        <p>Description: {{ favorite[6] }}</p>
+                        <p>Price: ${{ favorite[7] }}</p>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p>Your favorites list is empty.</p>
+        {% endif %}
+    {% else %}
+        <p>Please log in to view your favorites.</p>
+    {% endif %}
+
+    <div class="login-logout">
+        <button class="back-button" onclick="navigateToItems()">Back to Items</button>
+    </div>
+</div>
+
+<script>
+    function navigateToItems() {
+        window.location.href = "/shop/items";
+    }
+</script>
+</body>
+</html>

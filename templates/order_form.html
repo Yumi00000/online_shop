@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Form</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='order_form.css') }}">
+</head>
+<body>
+<div class="order-container">
+    <h1>Order Form</h1>
+    <form action="/submit_order" method="post">
+        <div class="form-group">
+            <label for="user_login">User Login:</label>
+            <p>{{ current_user }}</p>
+
+        </div>
+
+        <div class="form-group">
+            <label for="address">Address:</label>
+            <input type="text" id="address" name="address" required>
+        </div>
+
+        <!-- Displayed but non-submitted fields -->
+
+
+        <div class="form-group">
+            <label for="order_total_price">Order Total Price:</label>
+            <input type="text" id="order_total_price" name="order_total_price" readonly
+                   value="auto_calculated_on_server">
+        </div>
+
+
+        <div class="form-group">
+            <button type="submit" disabled>Place Order</button>
+        </div>
+    </form>
+</div>
+</body>
+</html>

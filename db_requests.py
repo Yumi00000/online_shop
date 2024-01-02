@@ -25,27 +25,24 @@ def load_from_db(selected_cl: str, table: str, linked_column=None):
 
 def read_multiply_data_from_db(selected_cl: str, table: list, conditions, linked_column=None):
     with Connect_DB() as cursor:
-        cursor_string = f'SELECT {selected_cl} FROM "{table[0]}" INNER JOIN '
-        for one_table in table[1:]:
+        cursor_string = f'SELECT {selected_cl} FROM "{table[0]}"'
 
-            cursor_string += f'"{one_table}" ON '
-            cursor_string += 'AND'.join(conditions[table.index(one_table) - 1])
-            if linked_column:
-                cursor_string += ' WHERE '
-                condition = []
-                vals = []
-                for key, val in linked_column.items():
-                    condition.append(f'{key} = ?')
-                    vals.append(val)
+        for i, one_table in enumerate(table[1:]):
+            cursor_string += f' INNER JOIN "{one_table}" ON '
+            cursor_string += ' AND '.join(conditions[i])
 
-                cursor_string += ' AND '.join(condition)
-                print(cursor_string, vals)
-                cursor.execute(cursor_string, vals)
+        if linked_column:
+            cursor_string += ' WHERE '
+            condition = []
+            vals = []
+            for key, val in linked_column.items():
+                condition.append(f'{key} = ?')
+                vals.append(val)
 
-            else:
-                print(cursor_string)
+            cursor_string += ' AND '.join(condition)
 
-                cursor.execute(cursor_string)
+        print(cursor_string, vals)
+        cursor.execute(cursor_string, vals) if linked_column else cursor.execute(cursor_string)
 
         return cursor.fetchall()
 
