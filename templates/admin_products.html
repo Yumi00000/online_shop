@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Items</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='admin.css') }}">
+</head>
+<body>
+<div class="admin-sidebar">
+    <h2>Admin Dashboard</h2>
+    <ul>
+        <li><a href="/admin/orders">Orders</a></li>
+        <li><a href="/admin/users">Users</a></li>
+        <li><a href="/admin/items">Products</a></li>
+    </ul>
+</div>
+
+<div class="admin-content">
+    <header class="admin-header">
+        <h1>Items</h1>
+        <a href="#">Logout</a>
+    </header>
+
+    <!-- Main content area -->
+    <div class="admin-main-content">
+        <h2>List of Items</h2>
+
+
+        <ul class="user-list">
+
+            {% for item in items %}
+                <li>{{ item[1] }}</li>
+                <li>{{ item[2] }}</li>
+                <li>{{ item[3] }}</li>
+                <li>{{ item[4] }}</li>
+                <li>{{ item[5] }}</li>
+                <button class="order-button" onclick="item_info({{ item[0] }})">Edit Item</button>
+                <form method="POST" action="{{ url_for('admin.admin_products_delete', item_id=item[0]) }}">
+                    <button class="delete_button" onclick="delete_item({{ item[0] }})">Delete Item</button>
+                </form>
+                <input type="hidden" name="_method" value="DELETE">
+            {% endfor %}
+        </ul>
+        <button class="add-item-button" onclick="add_item()">Add item</button>
+
+    </div>
+</div>
+<script>
+    function item_info(itemID) {
+        window.location.href = '/admin/items/' + itemID
+    }
+
+    function add_item() {
+        window.location.href = '/admin/items/new_item'
+    }
+
+    function delete_item(ItemID) {
+        window.location.href = '/admin/items/' + ItemID + 'delete'
+    }
+</script>
+</body>
+</html>

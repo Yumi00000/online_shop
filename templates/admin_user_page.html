@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Users Page</title>
+
+    <!-- Link to external CSS file (using the same admin.css) -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='admin.css') }}">
+</head>
+<body>
+<div class="admin-sidebar">
+    <h2>Admin Dashboard</h2>
+    <ul>
+        <li><a href="/admin/orders">Orders</a></li>
+        <li><a href="/admin/users">Users</a></li>
+        <li><a href="/admin/items">Products</a></li>
+    </ul>
+</div>
+<!-- Page content -->
+<div class="admin-content">
+    <header class="admin-header">
+        <h1>Users Page</h1>
+        <a href="#">Logout</a>
+    </header>
+
+    <!-- Main content area -->
+    <div class="admin-main-content">
+        <h2>List of Users</h2>
+        <form method="post">
+
+            <ul class="user-list">
+
+                {% for user in users %}
+                    {% if user[5] == 0 %}
+                    <li>{{ user[0] }}</li>
+                    <button class="order-button" name="user_id" value="{{ user[0] }}">Delete User</button>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+            <input type="hidden" name="_method" value="DELETE">
+
+        </form>
+    </div>
+</div>
+</body>
+</html>

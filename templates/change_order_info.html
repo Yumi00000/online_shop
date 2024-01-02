@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Order Information</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='admin.css') }}">
+</head>
+<body>
+<div class="admin-sidebar">
+    <h2>Admin Dashboard</h2>
+    <ul>
+        <li><a href="/admin/orders">Orders</a></li>
+        <li><a href="/admin/users">Users</a></li>
+        <li><a href="/admin/items">Products</a></li>
+    </ul>
+</div>
+<div class="admin-content">
+    <header class="admin-header">
+        <h1>Update Order Information</h1>
+        <a href="#">Logout</a>
+    </header>
+
+
+    <div class="admin-main-content">
+        <form id="orderForm" method="POST" action="{{ url_for('admin.change_admin_orders_info', order_id=order_id) }}">
+            <input type="hidden" name="_method" value="PUT">
+            <label for="address">New Address:</label>
+            <input type="text" id="address" name="address" required>
+            <label for="status">status:</label>
+            <input type="text" id="status" name="status" required>
+
+            <button type="submit">Update Address</button>
+        </form>
+    </div>
+</div>
+
+
+</body>
+</html>

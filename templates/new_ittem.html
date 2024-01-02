@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='admin.css') }}">
+</head>
+<body>
+<div class="admin-sidebar">
+    <h2>Admin Dashboard</h2>
+    <ul>
+        <li><a href="/admin/orders">Orders</a></li>
+        <li><a href="/admin/users">Users</a></li>
+        <li><a href="/admin/items">Products</a></li>
+    </ul>
+</div>
+<div class="admin-content item_update_page">
+    <header class="admin-header">
+        <h1>Add Item</h1>
+        <a href="#">Logout</a>
+    </header>
+
+    <div class="admin-main-content">
+
+        <form class="item-update-form" method="POST"
+              action="{{ url_for('admin.admin_products_new') }}">
+            <input type="hidden" name="_method" value="PUT">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            <label for="description">Description:</label>
+            <input type="text" id="description" name="description" required>
+            <label for="status">Status:</label>
+            <input type="text" id="status" name="status" required>
+            <label for="category">Category:</label>
+            <input type="text" id="category" name="category" required>
+            <label for="price">Price</label>
+            <input type="text" id="price" name="price" required>
+            <button type="submit">Add Item</button>
+        </form>
+
+    </div>
+</div>
+</body>
+
+</html>

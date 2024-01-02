@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Item Details</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+<div class="item-details-container">
+    {% for item in item %}
+        <div class="item">
+            <form method="POST" action="/shop/cart/">
+                <h1>{{ item[1] }}</h1>
+                <p>Price: ${{ item[3] }}</p>
+                <p>Description: {{ item[2] }}</p>
+                <p>Status: {{ item[4] }}</p>
+                <p>Category: {{ item[5] }}</p>
+                <label for="quantity">Add to cart:</label>
+                <input type="hidden" name="id" value="{{ item[0] }}">
+
+                <button class="item_page_bottom">Add to Cart</button>
+            </form>
+        </div>
+    {% endfor %}
+    {% if review_id %}
+        <button class="reviews_page_bottom" onclick="reviews_page('{{ item[0][0] }}')">Read Reviews</button>
+        <a href="/shop/items">Back to Items</a>
+    {% else %}
+        <button class="reviews_page_bottom" onclick="reviews_page('{{ item[0][0] }}')">Create Reviews</button>
+    {% endif %}
+</div>
+<script>
+    function reviews_page(ItemId) {
+        window.location.href = '/shop/items/' + ItemId + '/review';
+    }
+</script>
+</body>
+</html>

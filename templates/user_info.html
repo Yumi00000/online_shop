@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Information</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+<div class="user-info-container">
+    <div class="user-info">
+        <h1>User Information</h1>
+
+        <form action="/user" method="POST">
+            <input type="hidden" name="_method" value="PUT">
+            <div class="info-group">
+                <label for="login">Login:</label>
+                <p id="login">{{ current_user[0] }}</p>
+            </div>
+
+            <div class="info-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" value="{{ current_user[1] }}">
+            </div>
+
+            <div class="info-group">
+                <label for="surname">Surname:</label>
+                <input type="text" id="surname" name="surname" value="{{ current_user[2] }}">
+            </div>
+
+            <div class="info-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" value="{{ current_user[3] }}">
+            </div>
+
+            <div class="info-group">
+                <label for="mobile_number">Mobile Number:</label>
+                <input type="text" id="mobile_number" name="mobile_number" value="{{ current_user[4] }}">
+            </div>
+
+            <div class="save-button">
+                <button type="submit">Save Changes</button>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>

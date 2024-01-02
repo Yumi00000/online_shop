@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cart</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+<div class="items-container">
+    <h1>Your Cart</h1>
+    {% if current_user and cart %}
+        {% for item in cart %}
+            <div class="item">
+                <h3>User name: {{ item[0] }}</h3>
+                <p>Item id: {{ item[1] }}</p>
+                <p>Quantity: {{ item[2] }}</p>
+                <p>Item name: {{ item[4] }}</p>
+                <p>Item description: {{ item[5] }}</p>
+                <p>Price: ${{ item[6] }}</p>
+                <div class="item-buttons">
+                    <form method="POST" action="/shop/cart/delete">
+                        <input type="hidden" name="id" value="{{ item[1] }}">
+                        <input type="hidden" name="_method" value="DELETE">
+                        <button class="delete-button">Delete Item</button>
+                    </form>
+                    <form method="POST" action="/shop/cart/">
+                        <input type="hidden" name="id" value="{{ item[1] }}">
+                        <button class="add-button">Add more items</button>
+                    </form>
+                </div>
+            </div>
+        {% endfor %}
+    {% else %}
+        <h3>Your cart is empty</h3>
+    {% endif %}
+
+    <div class="login-logout">
+        <button class="back-button" onclick="navigateToItems()">Back to Items</button>
+    </div>
+</div>
+
+<script>
+    function navigateToItems() {
+        window.location.href = "/shop/items";
+    }
+</script>
+</body>
+</html>
