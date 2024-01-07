@@ -1,9 +1,8 @@
-from flask import Flask
-from flask_wtf import CSRFProtect
+from models.__init__ import app
 
 from urls import items_blueprint, admin_blueprint, user_blueprint, shop_blueprint, cart_blueprint
 
-app = Flask(__name__)
+
 
 
 app.secret_key = 'dfgdrfttg3e4dfvb'
