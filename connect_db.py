@@ -9,7 +9,7 @@ class Connect_DB:
         return d
 
     def __enter__(self):
-        self.my_db = sqlite3.connect('identifier.sqlite')
+        self.my_db = sqlite3.connect('instance/identifier.sqlite')
         self.row_factory = self.dict_factory
         self.cursor = self.my_db.cursor()
         return self.cursor
