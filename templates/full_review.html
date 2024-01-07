@@ -9,28 +9,31 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
-    <h1 class="unique-page-title">Full Review</h1>
+<h1 class="unique-page-title">Full Review</h1>
 
-    {% if review %}
-        <form id="reviewForm" method="POST"
-              action="{{ url_for('item.full_review', item_id=item_id, review_id = review[0]) }}" class="unique-review-form">
-            <input type="hidden" name="_method" value="put"/>
-            <div class="unique-form-group">
-                <label for="review" class="unique-form-label">Review:</label>
-                <textarea id="review" name="review" class="unique-form-input unique-textarea">{{ review[2] }}</textarea>
-            </div>
+{% if review %}
+    <form id="reviewForm" method="POST"
+          action="{{ url_for('item.full_review', item_id=item_id, review_id=review.feedback_id) }}"
+          class="unique-review-form">
 
-            <div class="unique-form-group">
-                <label for="rating" class="unique-form-label">Rating:</label>
-                <input type="number" id="rating" name="rating" value="{{ review[3] }}" min="1" max="5" class="unique-form-input">
-            </div>
+        <input type="hidden" name="_method" value="put"/>
+        <div class="unique-form-group">
+            <label for="review" class="unique-form-label">Review:</label>
+            <textarea id="review" name="review" class="unique-form-input unique-textarea">{{ review.text }}</textarea>
+        </div>
 
-            <div class="unique-form-group">
-                <button type="submit" class="unique-submit-button">Update Review</button>
-            </div>
-        </form>
-    {% else %}
-        <p class="unique-error-message">Review not found.</p>
-    {% endif %}
+        <div class="unique-form-group">
+            <label for="rating" class="unique-form-label">Rating:</label>
+            <input type="number" id="rating" name="rating" value="{{ review.rating }}" min="1" max="5"
+                   class="unique-form-input">
+        </div>
+
+        <div class="unique-form-group">
+            <button type="submit" class="unique-submit-button">Update Review</button>
+        </div>
+    </form>
+{% else %}
+    <p class="unique-error-message">Review not found.</p>
+{% endif %}
 </body>
 </html>

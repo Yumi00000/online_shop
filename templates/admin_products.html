@@ -32,14 +32,14 @@
         <ul class="user-list">
 
             {% for item in items %}
-                <li>{{ item[1] }}</li>
-                <li>{{ item[2] }}</li>
-                <li>{{ item[3] }}</li>
-                <li>{{ item[4] }}</li>
-                <li>{{ item[5] }}</li>
-                <button class="order-button" onclick="item_info({{ item[0] }})">Edit Item</button>
-                <form method="POST" action="{{ url_for('admin.admin_products_delete', item_id=item[0]) }}">
-                    <button class="delete_button" onclick="delete_item({{ item[0] }})">Delete Item</button>
+                <li>{{ item.name }}</li>
+                <li>{{ item.description }}</li>
+                <li>{{ item.price }}</li>
+                <li>{{ item.status }}</li>
+                <li>{{ item.category }}</li>
+                <button class="order-button" onclick="item_info({{ item.id }})">Edit Item</button>
+                <form method="POST" action="{{ url_for('admin.admin_products_delete', item_id=item.id) }}">
+                    <button class="delete_button" onclick="delete_item({{ item.id }})">Delete Item</button>
                 </form>
                 <input type="hidden" name="_method" value="DELETE">
             {% endfor %}

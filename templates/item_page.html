@@ -10,23 +10,25 @@
     {% for item in item %}
         <div class="item">
             <form method="POST" action="/shop/cart/">
-                <h1>{{ item[1] }}</h1>
-                <p>Price: ${{ item[3] }}</p>
-                <p>Description: {{ item[2] }}</p>
-                <p>Status: {{ item[4] }}</p>
-                <p>Category: {{ item[5] }}</p>
+                {% set status_id = item.status %}
+                        {% set status = db.session.query(Items_stat).filter_by(stat_id=status_id).first() %}
+                <h1>{{ item.name }}</h1>
+                <p>Price: ${{ item.price }}</p>
+                <p>Description: {{ item.description }}</p>
+                <p>Status: {{ status.name }}</p>
+                <p>Category: {{ item.category }}</p>
                 <label for="quantity">Add to cart:</label>
-                <input type="hidden" name="id" value="{{ item[0] }}">
+                <input type="hidden" name="id" value="{{ item.id }}">
 
                 <button class="item_page_bottom">Add to Cart</button>
             </form>
         </div>
     {% endfor %}
     {% if review_id %}
-        <button class="reviews_page_bottom" onclick="reviews_page('{{ item[0][0] }}')">Read Reviews</button>
+        <button class="reviews_page_bottom" onclick="reviews_page('{{ review_id.item_id }}')">Read Reviews</button>
         <a href="/shop/items">Back to Items</a>
     {% else %}
-        <button class="reviews_page_bottom" onclick="reviews_page('{{ item[0][0] }}')">Create Reviews</button>
+        <button class="reviews_page_bottom" onclick="reviews_page('{{ review_id.item_id }}')">Create Reviews</button>
     {% endif %}
 </div>
 <script>

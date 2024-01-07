@@ -2,22 +2,24 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Your Favorites</title>
+    <title>Your Wait list</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
 <div class="favorites-container">
     <h1>Your Wait list</h1>
-    {% if login %}
-        <p>Hello, {{ login }}!</p>
-        {% if waitlist %}
+    {% if current_user %}
+        <p>Hello, {{ current_user }}!</p>
+        {% if user_waitlist %}
             <div class="favorites-list">
-                {% for waitlist in waitlist %}
+                {% for item in user_waitlist %}
                     <div class="favorite-item">
-                        <h3>Item Name: {{ waitlist[3] }}</h3>
-                        <p>Description: {{ waitlist[4] }}</p>
-                        <p>Price: ${{ waitlist[5] }}</p>
-                        <p>Status: {{ waitlist[6] }}</p>
+                        {% set item_id = item.item_id %}
+                        {% set item = db.session.query(Item).filter_by(id=item_id).first() %}
+                        <h3>Item Name: {{ item.name }}</h3>
+                        <p>Description: {{ item.description }}</p>
+                        <p>Price: ${{ item.price }}</p>
+                        <p>Status: {{ item.status }}</p>
                     </div>
                 {% endfor %}
             </div>

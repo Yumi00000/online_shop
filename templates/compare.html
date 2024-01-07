@@ -21,13 +21,22 @@
             </tr>
             </thead>
             <tbody>
-            {% for item in compare %}
+            {% for compare_item in compare %}
                 <tr>
-                    <td>{{ item[1] }}</td>
-                    <td>{{ item[4] }}</td>
-                    <td>{{ item[5] }}</td>
-                    <td>${{ item[6] }}</td>
-                    <!-- Add more columns as needed -->
+                    {% set item_id = compare_item.item_id %}
+                    {% set item_to_compare = compare_item.item_to_compare %}
+                    {% set item = db.session.query(Item).filter_by(id=item_id).first() %}
+                    {% set item_to_compare = db.session.query(Item).filter_by(id=item_to_compare).first() %}
+                    <td>{{ item.id }}</td>
+                    <td>{{ item.name }}</td>
+                    <td>{{ item.description }}</td>
+                    <td>${{ item.price }}</td>
+                </tr>
+                <tr>
+                    <td>{{ item_to_compare.id }}</td>
+                    <td>{{ item_to_compare.name }}</td>
+                    <td>{{ item_to_compare.description }}</td>
+                    <td>${{ item_to_compare.price }}</td>
                 </tr>
             {% endfor %}
             </tbody>

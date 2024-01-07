@@ -14,9 +14,11 @@
             <div class="favorites-list">
                 {% for favorite in favorites %}
                     <div class="favorite-item">
-                        <h3>Item Name: {{ favorite[5] }}</h3>
-                        <p>Description: {{ favorite[6] }}</p>
-                        <p>Price: ${{ favorite[7] }}</p>
+                        {% set item_id = favorite.item_id %}
+                        {% set item = db.session.query(Item).filter_by(id=item_id).first() %}
+                        <h3>Item Name: {{ item.name }}</h3>
+                        <p>Description: {{ item.description }}</p>
+                        <p>Price: ${{ item.price }}</p>
                     </div>
                 {% endfor %}
             </div>

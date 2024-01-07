@@ -14,28 +14,29 @@
             <input type="hidden" name="_method" value="PUT">
             <div class="info-group">
                 <label for="login">Login:</label>
-                <p id="login">{{ current_user[0] }}</p>
+                <p id="login">{{ current_user.login }}</p>
             </div>
 
             <div class="info-group">
                 <label for="name">Name:</label>
-                <input type="text" id="name" name="name" value="{{ current_user[1] }}">
+                <input type="text" id="name" name="name" value="{{ current_user.name }}">
             </div>
 
             <div class="info-group">
                 <label for="surname">Surname:</label>
-                <input type="text" id="surname" name="surname" value="{{ current_user[2] }}">
+                <input type="text" id="surname" name="surname" value="{{ current_user.surname }}">
             </div>
 
             <div class="info-group">
                 <label for="password">Password:</label>
-                <input type="password" id="password" name="password" value="{{ current_user[3] }}">
+                <input type="password" id="password" name="password" value="{{ current_user.password }}">
             </div>
 
             <div class="info-group">
                 <label for="mobile_number">Mobile Number:</label>
-                <input type="text" id="mobile_number" name="mobile_number" value="{{ current_user[4] }}">
+                <input type="text" id="mobile_number" name="mobile_number" value="{{ current_user.mobile_number }}">
             </div>
+
 
             <div class="save-button">
                 <button type="submit">Save Changes</button>
