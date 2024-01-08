@@ -32,7 +32,7 @@
     <div class="admin-main-content">
         <h2>Orders</h2>
 
-        {% if order %}
+        {% if orders %}
             <table>
                 <thead>
                 <tr>
@@ -44,15 +44,15 @@
                 </tr>
                 </thead>
                 <tbody>
-                {% for order in order %}
+                {% for order in orders %}
                     <tr>
-                        <td>{{ order.order_id }}</td>
-                        <td>{{ order.user_login }}</td>
-                        <td>{{ order.address }}</td>
-                        <td>{{ order.order_total_price }}</td>
-                        <td>{{ order.status }}</td>
+                        <td>{{ order[0] }}</td>
+                        <td>{{ order[1] }}</td>
+                        <td>{{ order[2] }}</td>
+                        <td>{{ order[3] }}</td>
+                        <td>{{ order[4] }}</td>
                         <td>
-                            <button class="order-button" onclick="order_info('{{ order.order_id }}')">Change order info
+                            <button class="order-button" onclick="order_info('{{ order[0] }}')">Change order info
                             </button>
                         </td>
                     </tr>

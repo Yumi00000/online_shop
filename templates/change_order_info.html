@@ -25,9 +25,7 @@
 
 
     <div class="admin-main-content">
-       <form id="orderForm" method="POST" action="{{ url_for('admin.update_admin_orders_info', order_id=order.order_id) }}">
-
-
+        <form id="orderForm" method="POST" action="{{ url_for('admin.change_admin_orders_info', order_id=order_id) }}">
             <input type="hidden" name="_method" value="PUT">
             <label for="address">New Address:</label>
             <input type="text" id="address" name="address" required>

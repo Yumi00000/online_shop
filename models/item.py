@@ -6,8 +6,9 @@ class Item(db.Model):
     name = db.Column(db.String(50), unique=True, nullable=False)
     description = db.Column(db.Text, nullable=False)
     price = db.Column(db.Float, nullable=False)
-    status = db.Column(db.Integer, db.ForeignKey('Items_stat.stat_id'))
-    category = db.Column(db.Integer, db.ForeignKey('Category.cat_id'))
+    status = db.Column(db.Integer, db.ForeignKey('status.id'))
+    category = db.Column(db.Integer, db.ForeignKey('category.id'))
+
 
     def __init__(self, name, description, price, status, category):
         self.name = name
@@ -15,6 +16,5 @@ class Item(db.Model):
         self.price = price
         self.status = status
         self.category = category
-
     def __repr__(self):
         return '<Item %r>' % self.name

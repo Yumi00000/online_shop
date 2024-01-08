@@ -33,9 +33,9 @@
             <ul class="user-list">
 
                 {% for user in users %}
-                    {% if user.is_super_user == 0 %}
-                    <li>{{ user.login }}</li>
-                    <button class="order-button" name="user_id" value="{{ user.login }}">Delete User</button>
+                    {% if user[5] == 0 %}
+                    <li>{{ user[0] }}</li>
+                    <button class="order-button" name="user_id" value="{{ user[0] }}">Delete User</button>
                     {% endif %}
                 {% endfor %}
             </ul>

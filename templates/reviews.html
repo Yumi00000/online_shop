@@ -7,66 +7,63 @@
 </head>
 <body>
 <div class="reviews-container">
+
     <form method="POST" action="{{ url_for('item.create_read_reviews', item_id=item_id) }}">
         {% if reviews %}
-            <input type="hidden" name="item_id" value="{{ reviews[0].item_id }}">
+            <input type="hidden" name="item_id" value="{{ reviews[0][1] }}">
             <h2>Customer Reviews</h2>
             {% for review in reviews %}
                 <div class="review">
-                    {% set item = db.session.query(Item).filter_by(id=item_id).first() %}
-                    <p>By: {{ review.user_login }}</p>
-                    <p>Rating: {{ review.rating }}</p>
-                    <div class="review-text">{{ review.text }}</div>
-                    {% if review.text|length > 100 %}
+                    <p>By: {{ review[4] }}</p>
+                    <p>Rating: {{ review[3] }}</p>
+                    <div class="review-text">{{ review[2] }}</div>
+                    {% if review[2]|length > 100 %}
                         <span class="read-more" onclick="toggleReadMore(this)">Read more</span>
                     {% endif %}
-                    {% if current_user == review.user_login %}
-                        <button class="submit-button" onclick="fullReview('{{ item_id }}', '{{ review.feedback_id }}')">Edit
-                            review
-                        </button>
-                    {% endif %}
+                {% if review[4] and current_user==review[4] %}
+                    <button class="submit-button" onclick="full_review('{{ review[1] }}', '{{ review[0] }}')">Edit review</button>
+                {% endif %}
                 </div>
             {% endfor %}
+
         {% else %}
             <p>No reviews available.</p>
         {% endif %}
-        {% if current_user %}
-            <div class="form-group">
-                <label for="review-text">Write your review:</label>
-                <textarea id="review-text" name="review-text" rows="4" required></textarea>
-            </div>
+    {% if current_user %}
+        <div class="form-group">
+            <label for="review-text">Write your review:</label>
+            <textarea id="review-text" name="review-text" rows="4" required></textarea>
+        </div>
 
-            <div class="form-group rating-input">
-                <label for="rating">Rating:</label>
-                <input type="number" id="rating" name="rating" min="1" max="5" required>
-            </div>
+        <div class="form-group rating-input">
+            <label for="rating">Rating:</label>
+            <input type="number" id="rating" name="rating" min="1" max="5" required>
+        </div>
 
-            <button type="submit" class="submit-button">Submit Review</button>
-            <a href="{{ url_for('item.get_items', item_id=item_id) }}">Back to Items </a>
-        {% endif %}
-</form>
-</div>
-<div>
+        <button type="submit" class="submit-button">Submit Review</button>
+        <a href="{{ url_for('item.get_items', item_id=item_id) }}">Back to Items</a>
+    </form>
+    {% endif %}
     <script>
-        function toggleReadMore(element) {
-            var reviewText = element.previousElementSibling;
-            var isExpanded = reviewText.dataset.expanded === 'true';
+    function toggleReadMore(element) {
+        var reviewText = element.previousElementSibling;
+        var isExpanded = reviewText.dataset.expanded === 'true';
 
-            if (isExpanded) {
-                reviewText.style.maxHeight = '3em';
-                element.textContent = 'Read more';
-            } else {
-                reviewText.style.maxHeight = 'none';
-                element.textContent = 'Read less';
-            }
-
-            reviewText.dataset.expanded = isExpanded ? 'false' : 'true';
+        if (isExpanded) {
+            reviewText.style.maxHeight = '3em';
+            element.textContent = 'Read more';
+        } else {
+            reviewText.style.maxHeight = 'none';
+            element.textContent = 'Read less';
         }
 
-        function fullReview(itemID, reviewID) {
-            window.location.href = '/shop/items/' + itemID + '/review/' + reviewID;
-        }
-    </script>
+        reviewText.dataset.expanded = isExpanded ? 'false' : 'true';
+    }
+    function full_review(ItemID, ReviewID){
+        window.location.href ='/shop/items/'+ItemID+'/review/'+ReviewID
+    }
+</script>
+
 </div>
 </body>
 </html>
