@@ -1,7 +1,9 @@
-from flask import Blueprint, request, render_template, session, redirect
+from flask import Blueprint, render_template, request, session, redirect, url_for
 
-from db_requests import load_from_db, insert_data_in_db, delete_data_from_db, read_multiply_data_from_db, \
-    update_data_in_db
+from app import db
+from models.cart import Cart
+from models.item import Item
+from models.user import User
 
 cart_blueprint = Blueprint('cart', __name__)
 
@@ -9,11 +11,9 @@ cart_blueprint = Blueprint('cart', __name__)
 @cart_blueprint.route('/shop/cart/', methods=['GET'])
 def get_cart_info():
     login = session.get('login')
-
-    current_user = load_from_db('*', 'User', {'login': login})[0][0]
-    cart_id = load_from_db('user_login', 'Cart', {'user_login': current_user})
-    cart = read_multiply_data_from_db('*', ['Cart', 'Item'], [('Cart.item_id = Item.id',)],
-                                      {'user_login': current_user})
+    current_user = User.query.filter_by(login=login).first()
+    cart_id = Cart.query.filter_by(user_login=current_user.login).first()
+    cart = db.session.query(Cart, Item).filter(Cart.item_id == Item.id, Cart.user_login == current_user.login).all()
     return render_template('cart_page.html', cart_id=cart_id, current_user=current_user, cart=cart)
 
 
@@ -21,16 +21,18 @@ def get_cart_info():
 def add_items_to_cart():
     login = session.get('login')
     if login:
-        current_user = load_from_db('*', 'User', {'login': login})[0][0]
+        current_user = User.query.filter_by(login=login).first()
         item_id = request.form.get('id')
-        quantity_result = load_from_db('quantity', 'Cart', {'user_login': current_user, 'item_id': item_id})
-        if quantity_result:
-            quantity = quantity_result[0][0]
-            update_data_in_db('Cart', {'quantity': quantity + 1}, {'user_login': current_user, 'item_id': item_id})
-        else:
-            insert_data_in_db('Cart', {'user_login': current_user, 'item_id': item_id, 'quantity': 1})
+        cart_item = Cart.query.filter_by(user_login=current_user.login, item_id=item_id).first()
 
-        return redirect('/shop/cart')
+        if cart_item:
+            cart_item.quantity += 1
+        else:
+            cart_item = Cart(user_login=current_user.login, item_id=item_id, quantity=1)
+            db.session.add(cart_item)
+
+        db.session.commit()
+        return redirect(url_for('cart.get_cart_info'))
     else:
         return redirect('/login')
 
@@ -38,22 +40,24 @@ def add_items_to_cart():
 @cart_blueprint.route('/shop/cart/delete', methods=['POST'])
 def delete_items_from_cart():
     login = session.get('login')
-    current_user = load_from_db('*', 'User', {'login': login})[0][0]
+    current_user = User.query.filter_by(login=login).first()
 
     item_id = request.form.get('id')
-    quantity_result = load_from_db('quantity', 'Cart', {'user_login': current_user, 'item_id': item_id})
-    quantity = quantity_result[0][0]
-    if quantity > 1:
-        update_data_in_db('Cart', {'quantity': quantity - 1}, {'user_login': current_user, 'item_id': item_id})
+    cart_item = Cart.query.filter_by(user_login=current_user.login, item_id=item_id).first()
+
+    if cart_item.quantity > 1:
+        cart_item.quantity -= 1
     else:
-        delete_data_from_db('Cart', 'item_id', item_id)
-    return redirect('/shop/cart')
+        db.session.delete(cart_item)
+
+    db.session.commit()
+    return redirect(url_for('cart.get_cart_info'))
 
 
 @cart_blueprint.route('/shop/cart/order', methods=['POST', 'GET'])
-def edit_oder_form():
+def edit_order_form():
     login = session.get('login')
-    current_user = load_from_db('*', 'User', {'login': login})[0][0]
-    if request.method == 'GET':
+    current_user = User.query.filter_by(login=login).first()
 
+    if request.method == 'GET':
         return render_template('order_form.html', current_user=current_user)
