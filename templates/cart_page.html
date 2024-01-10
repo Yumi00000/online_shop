@@ -9,22 +9,23 @@
 <div class="items-container">
     <h1>Your Cart</h1>
     {% if current_user and cart %}
-        {% for item in cart %}
+        {% for cart_item in cart %}
             <div class="item">
-                <h3>User name: {{ item[0] }}</h3>
-                <p>Item id: {{ item[1] }}</p>
-                <p>Quantity: {{ item[2] }}</p>
-                <p>Item name: {{ item[4] }}</p>
-                <p>Item description: {{ item[5] }}</p>
-                <p>Price: ${{ item[6] }}</p>
+                {% set item_id = cart_item.item_id %}
+                {% set item = db.session.query(Item).filter_by(id=item_id).first() %}
+                <h3>User name: {{ cart_item.user_login }}</h3>
+                <p>Quantity: {{ cart_item.quantity }}</p>
+                <p>Item name: {{ item.name }}</p>
+                <p>Item description: {{ item.description }}</p>
+                <p>Price: ${{ item.price }}</p>
                 <div class="item-buttons">
                     <form method="POST" action="/shop/cart/delete">
-                        <input type="hidden" name="id" value="{{ item[1] }}">
+                        <input type="hidden" name="id" value="{{ item.id }}">
                         <input type="hidden" name="_method" value="DELETE">
                         <button class="delete-button">Delete Item</button>
                     </form>
                     <form method="POST" action="/shop/cart/">
-                        <input type="hidden" name="id" value="{{ item[1] }}">
+                        <input type="hidden" name="id" value="{{ item.id }}">
                         <button class="add-button">Add more items</button>
                     </form>
                 </div>
@@ -45,6 +46,7 @@
     function navigateToItems() {
         window.location.href = "/shop/items";
     }
+
     function navigateToOrder() {
         window.location.href = "/shop/cart/order"
     }

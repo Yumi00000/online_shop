@@ -3,9 +3,9 @@ from app import db
 
 class Order_itms(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    order_id = db.Column(db.Integer, db.ForeignKey('order.id'))
-    item_id = db.Column(db.Integer, db.ForeignKey('item.id'))
-    quantity = db.Column(db.Integer, db.ForeignKey('cart.quantity'))
+    order_id = db.Column(db.Integer, db.ForeignKey('Order.id'))
+    item_id = db.Column(db.Integer, db.ForeignKey('Item.id'))
+    quantity = db.Column(db.Integer, db.ForeignKey('Cart.quantity'))
 
     def __init__(self, order_id, item_id, quantity):
         self.order_id = order_id

@@ -2,43 +2,47 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Your Wait list</title>
+    <title>User Information</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
-<div class="favorites-container">
-    <h1>Your Wait list</h1>
-    {% if current_user %}
-        <p>Hello, {{ current_user }}!</p>
-        {% if user_waitlist %}
-            <div class="favorites-list">
-                {% for item in user_waitlist %}
-                    <div class="favorite-item">
-                        {% set item_id = item.item_id %}
-                        {% set item = db.session.query(Item).filter_by(id=item_id).first() %}
-                        <h3>Item Name: {{ item.name }}</h3>
-                        <p>Description: {{ item.description }}</p>
-                        <p>Price: ${{ item.price }}</p>
-                        <p>Status: {{ item.status }}</p>
-                    </div>
-                {% endfor %}
-            </div>
-        {% else %}
-            <p>Your Wait list is empty.</p>
-        {% endif %}
-    {% else %}
-        <p>Please log in to view your wait list.</p>
-    {% endif %}
+<div class="user-info-container">
+    <div class="user-info">
+        <h1>User Information</h1>
 
-    <div class="login-logout">
-        <button class="back-button" onclick="navigateToItems()">Back to Items</button>
+        <form action="/user" method="POST">
+            <input type="hidden" name="_method" value="PUT">
+            <div class="info-group">
+                <label for="login">Login:</label>
+                <p id="login">{{ current_user.login }}</p>
+            </div>
+
+            <div class="info-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" value="{{ current_user.name }}">
+            </div>
+
+            <div class="info-group">
+                <label for="surname">Surname:</label>
+                <input type="text" id="surname" name="surname" value="{{ current_user.surname }}">
+            </div>
+
+            <div class="info-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" value="{{ current_user.password }}">
+            </div>
+
+            <div class="info-group">
+                <label for="mobile_number">Mobile Number:</label>
+                <input type="text" id="mobile_number" name="mobile_number" value="{{ current_user.mobile_number }}">
+            </div>
+
+
+            <div class="save-button">
+                <button type="submit">Save Changes</button>
+            </div>
+        </form>
     </div>
 </div>
-
-<script>
-    function navigateToItems() {
-        window.location.href = "/shop/items";
-    }
-</script>
 </body>
 </html>
