@@ -6,7 +6,7 @@ class Feedback(db.Model):
     item_id = db.Column(db.Integer, db.ForeignKey('item.id'))
     text = db.Column(db.String(250))
     rating = db.Column(db.Integer)
-    user_login = db.Column(db.String(50), db.ForeignKey('User.login'))
+    user_login = db.Column(db.String(50), db.ForeignKey('user.login'))
 
 
     def __init__(self, item_id, text, rating, user_login):

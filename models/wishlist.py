@@ -2,10 +2,10 @@ from app import db
 
 
 class Wishlist(db.Model):
-    list_id = db.Column(db.Integer, primary_key=True)
+    id = db.Column(db.Integer, primary_key=True)
     list_name = db.Column(db.String(50), unique=True, nullable=False)
-    user_login = db.Column(db.String(50), db.ForeignKey('User.login'))
-    item_id = db.Column(db.Integer, db.ForeignKey('Item.id'))
+    user_login = db.Column(db.String(50), db.ForeignKey('user.login'))
+    item_id = db.Column(db.Integer, db.ForeignKey('item.id'))
 
 
     def __init__(self, list_name, user_login, item_id):

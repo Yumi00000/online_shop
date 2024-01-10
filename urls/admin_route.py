@@ -52,7 +52,7 @@ def admin_products():
 @admin_blueprint.route('/admin/items/new_item', methods=['POST', 'GET'])
 def admin_products_new():
     if request.method == 'GET':
-        return render_template('new_item.html')
+        return render_template('new_ittem.html')
 
     name = request.form['name']
     description = request.form['description']

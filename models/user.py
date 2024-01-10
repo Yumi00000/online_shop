@@ -2,7 +2,7 @@ from app import db
 
 
 class User(db.Model):
-    __tablename__ = 'User'
+
     login = db.Column(db.String(50), unique=True, primary_key=True)
     name = db.Column(db.String(50))
     surname = db.Column(db.String(50))

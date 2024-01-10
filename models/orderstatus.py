@@ -1,7 +1,7 @@
 from app import db
 
 
-class Order_status(db.Model):
+class Orderstatus(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(50), unique=True, nullable=False)
 
@@ -9,4 +9,4 @@ class Order_status(db.Model):
     def __init__(self, name):
         self.name = name
     def __repr__(self):
-        return '<Order_status %r>' % self.name
+        return '<Orderstatus %r>' % self.id
