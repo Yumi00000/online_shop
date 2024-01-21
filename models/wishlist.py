@@ -14,3 +14,4 @@ class Wishlist(db.Model):
         self.item_id = item_id
     def __repr__(self):
         return '<Wishlist %r>' % self.id
+

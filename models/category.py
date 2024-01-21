@@ -12,3 +12,4 @@ class Category(db.Model):
 
     def __repr__(self):
         return '<Category %r>' % self.id
+

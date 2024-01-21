@@ -17,3 +17,4 @@ class Feedback(db.Model):
 
     def __repr__(self):
         return '<Feedback %r>' % self.id
+

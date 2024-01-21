@@ -18,3 +18,4 @@ class Item(db.Model):
 
     def __repr__(self):
         return '<Item %r>' % self.id
+

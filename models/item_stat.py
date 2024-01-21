@@ -10,3 +10,4 @@ class ItemsStat(db.Model):
 
     def __repr__(self):
         return '<ItemsStat %r>' % self.id
+

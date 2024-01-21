@@ -14,3 +14,4 @@ class Compare(db.Model):
 
     def __repr__(self):
         return '<Compare %r>' % self.id
+

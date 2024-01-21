@@ -10,3 +10,4 @@ class Orderstatus(db.Model):
         self.name = name
     def __repr__(self):
         return '<Orderstatus %r>' % self.id
+

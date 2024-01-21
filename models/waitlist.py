@@ -12,3 +12,4 @@ class Waitlist(db.Model):
 
     def __repr__(self):
         return '<Waitlist %r>' % self.id
+

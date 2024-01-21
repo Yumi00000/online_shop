@@ -1,7 +1,6 @@
 from flask import Blueprint, request, render_template, session, redirect
 
 from app import db
-from db_requests import load_from_db, insert_data_in_db, delete_data_from_db, update_data_in_db
 from models.cart import Cart
 from models.item import Item
 from models.user import User
