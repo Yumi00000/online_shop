@@ -1,14 +1,13 @@
 from flask import Blueprint, request, render_template, session
 
-from app import db
+from models.__init__ import db
+from .__init__ import shop_blueprint
 from db_requests import load_from_db, insert_data_in_db, read_multiply_data_from_db
 from models.compare import Compare
 from models.item import Item
 from models.user import User
 from models.waitlist import Waitlist
 from models.wishlist import Wishlist
-
-shop_blueprint = Blueprint('shop', __name__)
 
 
 @shop_blueprint.post('/shop/search/')

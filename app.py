@@ -1,27 +1,30 @@
 from flask import Flask
-from flask_migrate import Migrate
-from flask_sqlalchemy import SQLAlchemy
+from alembic.config import Config
+from alembic.script import ScriptDirectory
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://yumi:postgres@localhost/online_shop'
 app.config['SERVER_NAME'] = '127.0.0.1:5000'
-
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://yumi:postgres@db/online_shop'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.secret_key = "super secret key"
-db = SQLAlchemy(app)
 
-migrate = Migrate(app, db)
+alembic_script_location = "alembic"
 
-from urls.__init__ import create_blueprints
+config = Config()
+config.set_main_option("script_location", alembic_script_location)
+config.set_main_option("sqlalchemy.url", app.config['SQLALCHEMY_DATABASE_URI'])
 
-blueprints = create_blueprints()
+script = ScriptDirectory.from_config(config)
 
-app.register_blueprint(blueprints['user'], name='user_blueprint')
-app.register_blueprint(blueprints['admin'], name='admin_blueprint')
-app.register_blueprint(blueprints['items'], name='items_blueprint')
-app.register_blueprint(blueprints['shop'], name='shop_blueprint')
-app.register_blueprint(blueprints['cart'], name='cart_blueprint')
+from urls.__init__ import user_blueprint, admin_blueprint, shop_blueprint, cart_blueprint, items_blueprint
+
+
+app.register_blueprint(user_blueprint)
+app.register_blueprint(admin_blueprint)
+app.register_blueprint(items_blueprint)
+app.register_blueprint(shop_blueprint)
+app.register_blueprint(cart_blueprint)
 
 if __name__ == '__main__':
-    with app.app_context():
-        app.run(host='0.0.0.0', port=5000, debug=True, threaded=True)
+    app.run(host='0.0.0.0', port=5000)
+

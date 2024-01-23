@@ -1,12 +1,14 @@
-from app import db
+from sqlalchemy import ForeignKey, String, Column, Integer
 
+from data_base import Base as init_db
 
-class Feedback(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    item_id = db.Column(db.Integer, db.ForeignKey('item.id'))
-    text = db.Column(db.String(250))
-    rating = db.Column(db.Integer)
-    user_login = db.Column(db.String(50), db.ForeignKey('user.login'))
+class Feedback(init_db):
+    __tablename__ = 'feedback'
+    id = Column(Integer, primary_key=True)
+    item_id = Column(Integer, ForeignKey('item.id'))
+    text = Column(String(250))
+    rating = Column(Integer)
+    user_login = Column(String(50), ForeignKey('user.login'))
 
 
     def __init__(self, item_id, text, rating, user_login):

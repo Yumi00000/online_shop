@@ -1,9 +1,8 @@
 from flask import Blueprint, render_template, redirect, request, session
 
-from app import db
+from models.__init__ import db
+from .__init__ import user_blueprint
 from models.user import User
-
-user_blueprint = Blueprint('user', __name__)
 
 
 @user_blueprint.get('/login')

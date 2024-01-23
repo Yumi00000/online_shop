@@ -1,11 +1,10 @@
 from flask import Blueprint, request, session, render_template, url_for, redirect
 
-from app import db
+from models.__init__ import db
+from .__init__ import items_blueprint
 from models.feedback import Feedback
 from models.item import Item
 from models.user import User
-
-items_blueprint = Blueprint('item', __name__)
 
 
 @items_blueprint.route('/shop/items/<int:item_id>/review', methods=['GET', 'POST'])

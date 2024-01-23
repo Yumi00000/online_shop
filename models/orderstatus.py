@@ -1,9 +1,13 @@
-from app import db
+from sqlalchemy import Column, Integer, String
+
+from data_base import Base as init_db
 
 
-class Orderstatus(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(50), unique=True, nullable=False)
+
+class Orderstatus(init_db):
+    __tablename__ = 'orderStatus'
+    id = Column(Integer, primary_key=True)
+    name = Column(String(50), unique=True, nullable=False)
 
 
     def __init__(self, name):

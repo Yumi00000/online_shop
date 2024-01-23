@@ -1,11 +1,14 @@
-from app import db
+from sqlalchemy import ForeignKey, Integer, Column, String
+
+from data_base import Base as init_db
 
 
-class Wishlist(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    list_name = db.Column(db.String(50), unique=True, nullable=False)
-    user_login = db.Column(db.String(50), db.ForeignKey('user.login'))
-    item_id = db.Column(db.Integer, db.ForeignKey('item.id'))
+class Wishlist(init_db):
+    __tablename__ = 'wishlist'
+    id = Column(Integer, primary_key=True)
+    list_name = Column(String(50), unique=True, nullable=False)
+    user_login = Column(String(50), ForeignKey('user.login'))
+    item_id = Column(Integer, ForeignKey('item.id'))
 
 
     def __init__(self, list_name, user_login, item_id):

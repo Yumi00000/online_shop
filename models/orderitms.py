@@ -1,11 +1,15 @@
-from app import db
+from sqlalchemy import ForeignKey, Integer, Column
+
+from data_base import Base as init_db
 
 
-class Orderitms(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    order_id = db.Column(db.Integer, db.ForeignKey('order.id'))
-    item_id = db.Column(db.Integer, db.ForeignKey('item.id'))
-    quantity = db.Column(db.Integer, db.ForeignKey('cart.quantity'))
+
+class Orderitms(init_db):
+    __tablename__ = 'orderItms'
+    id = Column(Integer, primary_key=True)
+    order_id = Column(Integer, ForeignKey('order.id'))
+    item_id = Column(Integer, ForeignKey('item.id'))
+    quantity = Column(Integer, ForeignKey('cart.quantity'))
 
     def __init__(self, order_id, item_id, quantity):
         self.order_id = order_id

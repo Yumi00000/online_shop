@@ -1,11 +1,14 @@
-from app import db
+from sqlalchemy import Column, Integer, String, ForeignKey
+
+from data_base import Base as init_db
 
 
-class Cart(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    user_login = db.Column(db.String(50), db.ForeignKey('user.login'))
-    item_id = db.Column(db.Integer, db.ForeignKey('item.id'))
-    quantity = db.Column(db.Integer, unique=True)
+class Cart(init_db):
+    __tablename__ = 'cart'
+    id = Column(Integer, primary_key=True)
+    user_login = Column(String(50), ForeignKey('user.login'))
+    item_id = Column(Integer, ForeignKey('item.id'))
+    quantity = Column(Integer, unique=True)
 
     def __init__(self, user_login, item_id, quantity):
         self.user_login = user_login
@@ -14,4 +17,3 @@ class Cart(db.Model):
 
     def __repr__(self):
         return '<Cart %r>' % self.id
-

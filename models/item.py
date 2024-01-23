@@ -1,13 +1,17 @@
-from app import db
+from sqlalchemy import ForeignKey, Integer, Column, Float, Text, String
+
+from data_base import Base as init_db
 
 
-class Item(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(50), unique=True, nullable=False)
-    description = db.Column(db.Text, nullable=False)
-    price = db.Column(db.Float, nullable=False)
-    status = db.Column(db.Integer, db.ForeignKey('items_stat.id'))
-    category = db.Column(db.Integer, db.ForeignKey('category.id'))
+
+class Item(init_db):
+    __tablename__ = 'item'
+    id = Column(Integer, primary_key=True)
+    name = Column(String(50), unique=True, nullable=False)
+    description = Column(Text, nullable=False)
+    price = Column(Float, nullable=False)
+    status = Column(Integer, ForeignKey('items_stat.id'))
+    category = Column(Integer, ForeignKey('category.id'))
 
     def __init__(self, name, description, price, status, category):
         self.name = name

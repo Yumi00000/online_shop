@@ -1,11 +1,10 @@
 from flask import Blueprint, request, render_template, session, redirect
 
-from app import db
+from models.__init__ import db
+from .__init__ import cart_blueprint
 from models.cart import Cart
 from models.item import Item
 from models.user import User
-
-cart_blueprint = Blueprint('cart', __name__)
 
 
 @cart_blueprint.route('/shop/cart/', methods=['GET'])
