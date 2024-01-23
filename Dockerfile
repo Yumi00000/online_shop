@@ -7,7 +7,7 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 
 
-WORKDIR /online_shop
+WORKDIR /app
 
 
 COPY alembic alembic
