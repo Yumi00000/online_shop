@@ -1,6 +1,6 @@
 from flask import Blueprint, request, render_template, session
 
-from models.__init__ import db
+from data_base import Base as db
 from .__init__ import shop_blueprint
 from db_requests import load_from_db, insert_data_in_db, read_multiply_data_from_db
 from models.compare import Compare

@@ -4,50 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="67770f3d-1b23-45d3-b50b-c85533b4e800" name="Changes" comment="add postgres">
-      <change afterPath="$PROJECT_DIR$/data_base.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/32b208ec-e176-4c1b-8081-4847cb2ce41c.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/32b208ec-e176-4c1b-8081-4847cb2ce41c/storage_v2/_src_/database/online_shop.YtmpGw.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/32b208ec-e176-4c1b-8081-4847cb2ce41c/storage_v2/_src_/database/online_shop.YtmpGw/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/32b208ec-e176-4c1b-8081-4847cb2ce41c/storage_v2/_src_/database/online_shop.YtmpGw/schema/information_schema.FNRwLQ.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/32b208ec-e176-4c1b-8081-4847cb2ce41c/storage_v2/_src_/database/online_shop.YtmpGw/schema/pg_catalog.0S1ZNQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/32b208ec-e176-4c1b-8081-4847cb2ce41c/storage_v2/_src_/database/online_shop.YtmpGw/schema/pg_catalog.0S1ZNQ.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/32b208ec-e176-4c1b-8081-4847cb2ce41c/storage_v2/_src_/database/online_shop.YtmpGw/schema/public.abK9xQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/32b208ec-e176-4c1b-8081-4847cb2ce41c/storage_v2/_src_/database/postgres.edMnLQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/32b208ec-e176-4c1b-8081-4847cb2ce41c/storage_v2/_src_/database/postgres.edMnLQ/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/32b208ec-e176-4c1b-8081-4847cb2ce41c/storage_v2/_src_/database/postgres.edMnLQ/schema/information_schema.FNRwLQ.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/32b208ec-e176-4c1b-8081-4847cb2ce41c/storage_v2/_src_/database/postgres.edMnLQ/schema/pg_catalog.0S1ZNQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/32b208ec-e176-4c1b-8081-4847cb2ce41c/storage_v2/_src_/database/postgres.edMnLQ/schema/pg_catalog.0S1ZNQ.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/32b208ec-e176-4c1b-8081-4847cb2ce41c/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/online_shop.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/online_shop.iml" afterDir="false" />
+    <list default="true" id="67770f3d-1b23-45d3-b50b-c85533b4e800" name="Changes" comment="add another alchemy and alembic, created new migrations and new docker image">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/README" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/alembic.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/env.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/script.py.mako" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/versions/1b4f41417b89_.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/versions/973d23a7b4b3_.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/cart.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/cart.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/category.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/category.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/compare.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/compare.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/feedback.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/feedback.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/item.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/item.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/item_stat.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/item_stat.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/order.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/order.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/orderitms.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/orderitms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/orderstatus.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/orderstatus.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/user.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/user.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/waitlist.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/waitlist.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/wishlist.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/wishlist.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/urls/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/urls/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/urls/admin_route.py" beforeDir="false" afterPath="$PROJECT_DIR$/urls/admin_route.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/urls/cart_route.py" beforeDir="false" afterPath="$PROJECT_DIR$/urls/cart_route.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/urls/item_route.py" beforeDir="false" afterPath="$PROJECT_DIR$/urls/item_route.py" afterDir="false" />
@@ -95,9 +55,11 @@
   "keyToString": {
     "Flask server.Flask (app.py).executor": "Run",
     "Python.13e893bff3e8_.executor": "Run",
+    "Python.admin_route.executor": "Run",
     "Python.connect_db.executor": "Run",
     "Python.env.executor": "Run",
     "Python.online_shop.executor": "Run",
+    "Python.user_route.executor": "Run",
     "RunOnceActivity.OpenDatabaseViewOnStart": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -161,7 +123,7 @@
       <workItem from="1705760645057" duration="19210000" />
       <workItem from="1705933207324" duration="79000" />
       <workItem from="1705933297165" duration="669000" />
-      <workItem from="1706010549458" duration="10303000" />
+      <workItem from="1706010549458" duration="11998000" />
     </task>
     <task id="LOCAL-00001" summary="add postgres">
       <option name="closed" value="true" />
@@ -187,7 +149,23 @@
       <option name="project" value="LOCAL" />
       <updated>1705841362157</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="add another alchemy and alembic, created new migrations and new docker image">
+      <option name="closed" value="true" />
+      <created>1706021462969</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1706021462969</updated>
+    </task>
+    <task id="LOCAL-00005" summary="add another alchemy and alembic, created new migrations and new docker image">
+      <option name="closed" value="true" />
+      <created>1706021514855</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1706021514855</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -196,12 +174,26 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_NEW_TODO" value="false" />
     <MESSAGE value="add postgres" />
-    <option name="LAST_COMMIT_MESSAGE" value="add postgres" />
+    <MESSAGE value="add another alchemy and alembic, created new migrations and new docker image" />
+    <option name="LAST_COMMIT_MESSAGE" value="add another alchemy and alembic, created new migrations and new docker image" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/urls/admin_route.py</url>
+          <line>13</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/online_shop$online_shop.coverage" NAME="online_shop Coverage Results" MODIFIED="1706014947794" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/online_shop$online_shop.coverage" NAME="online_shop Coverage Results" MODIFIED="1706022335312" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/online_shop$user_route.coverage" NAME="user_route Coverage Results" MODIFIED="1706022128293" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/urls" />
+    <SUITE FILE_PATH="coverage/online_shop$admin_route.coverage" NAME="admin_route Coverage Results" MODIFIED="1706022074182" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/urls" />
     <SUITE FILE_PATH="coverage/online_shop$connect_db.coverage" NAME="connect_db Coverage Results" MODIFIED="1705762538235" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/online_shop$Flask__app_py_.coverage" NAME="Flask (app.py) Coverage Results" MODIFIED="1706014965263" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/online_shop$Flask__app_py_.coverage" NAME="Flask (app.py) Coverage Results" MODIFIED="1706022214703" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/online_shop$13e893bff3e8_.coverage" NAME="13e893bff3e8_ Coverage Results" MODIFIED="1705789301407" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/migrations/versions" />
     <SUITE FILE_PATH="coverage/online_shop$env.coverage" NAME="env Coverage Results" MODIFIED="1706018735059" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/alembic" />
   </component>

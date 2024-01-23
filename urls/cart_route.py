@@ -1,6 +1,6 @@
 from flask import Blueprint, request, render_template, session, redirect
 
-from models.__init__ import db
+from data_base import Base as db
 from .__init__ import cart_blueprint
 from models.cart import Cart
 from models.item import Item
