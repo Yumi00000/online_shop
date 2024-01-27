@@ -1,9 +1,9 @@
 from sqlalchemy import ForeignKey, Integer, Column, String
 
-from data_base import Base as init_db
+from data_base import Base
 
 
-class Wishlist(init_db):
+class Wishlist(Base):
     __tablename__ = 'wishlist'
     id = Column(Integer, primary_key=True)
     list_name = Column(String(50), unique=True, nullable=False)

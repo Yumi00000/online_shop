@@ -11,9 +11,7 @@ services:
     environment:
       FLASK_APP: app.py
       FLASK_ENV: development
-      DATABASE_URL: "postgresql://yumi:postgres@db/online_shop"
-    depends_on:
-      - db
+      DATABASE_URL: "postgresql://yumi:postgres@172.19.0.2:5432/online_shop"
   db:
     image: postgres:latest
     environment:

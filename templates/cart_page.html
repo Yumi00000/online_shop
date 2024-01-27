@@ -12,7 +12,7 @@
         {% for cart_item in cart %}
             <div class="item">
                 {% set item_id = cart_item.item_id %}
-                {% set item = db.session.query(Item).filter_by(id=item_id).first() %}
+                {% set item = db_session.query(Item).filter_by(id=item_id).first() %}
                 <h3>User name: {{ cart_item.user_login }}</h3>
                 <p>Quantity: {{ cart_item.quantity }}</p>
                 <p>Item name: {{ item.name }}</p>

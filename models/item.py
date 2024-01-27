@@ -1,10 +1,9 @@
 from sqlalchemy import ForeignKey, Integer, Column, Float, Text, String
 
-from data_base import Base as init_db
+from data_base import Base
 
 
-
-class Item(init_db):
+class Item(Base):
     __tablename__ = 'item'
     id = Column(Integer, primary_key=True)
     name = Column(String(50), unique=True, nullable=False)
@@ -22,4 +21,3 @@ class Item(init_db):
 
     def __repr__(self):
         return '<Item %r>' % self.id
-

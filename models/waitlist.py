@@ -1,10 +1,10 @@
 from sqlalchemy import ForeignKey, Integer, Column, String
 
-from data_base import Base as init_db
+from data_base import Base
 
 
 
-class Waitlist(init_db):
+class Waitlist(Base):
     __tablename__ = 'waitlist'
     id = Column(Integer, primary_key=True)
     user_login = Column(String(50), ForeignKey('user.login'))

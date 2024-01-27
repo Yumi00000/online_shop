@@ -1,10 +1,10 @@
 from sqlalchemy import String, Column, Integer, ForeignKey
 
-from data_base import Base as init_db
+from data_base import Base
 
 
 
-class Compare(init_db):
+class Compare(Base):
     __tablename__ = 'compare'
     id = Column(Integer, primary_key=True)
     item_id = Column(Integer, ForeignKey('item.id'))

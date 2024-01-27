@@ -1,8 +1,7 @@
 from sqlalchemy import ForeignKey, String, Column, Integer
 
-from data_base import Base as init_db
-
-class Feedback(init_db):
+from data_base import Base
+class Feedback(Base):
     __tablename__ = 'feedback'
     id = Column(Integer, primary_key=True)
     item_id = Column(Integer, ForeignKey('item.id'))

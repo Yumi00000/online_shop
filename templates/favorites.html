@@ -15,7 +15,7 @@
                 {% for favorite in favorites %}
                     <div class="favorite-item">
                         {% set item_id = favorite.item_id %}
-                        {% set item = db.session.query(Item).filter_by(id=item_id).first() %}
+                        {% set item = db_session.query(Item).filter_by(id=item_id).first() %}
                         <h3>Item Name: {{ item.name }}</h3>
                         <p>Description: {{ item.description }}</p>
                         <p>Price: ${{ item.price }}</p>

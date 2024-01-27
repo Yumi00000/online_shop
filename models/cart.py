@@ -1,9 +1,8 @@
 from sqlalchemy import Column, Integer, String, ForeignKey
 
-from data_base import Base as init_db
+from data_base import Base
 
-
-class Cart(init_db):
+class Cart(Base):
     __tablename__ = 'cart'
     id = Column(Integer, primary_key=True)
     user_login = Column(String(50), ForeignKey('user.login'))

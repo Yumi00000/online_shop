@@ -1,10 +1,8 @@
 from sqlalchemy import ForeignKey, Integer, Column
 
-from data_base import Base as init_db
+from data_base import Base
 
-
-
-class Orderitms(init_db):
+class Orderitms(Base):
     __tablename__ = 'orderItms'
     id = Column(Integer, primary_key=True)
     order_id = Column(Integer, ForeignKey('order.id'))

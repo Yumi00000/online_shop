@@ -13,7 +13,7 @@
             <h2>Customer Reviews</h2>
             {% for review in reviews %}
                 <div class="review">
-                    {% set item = db.session.query(Item).filter_by(id=item_id).first() %}
+                    {% set item = db_session.query(Item).filter_by(id=item_id).first() %}
                     <p>By: {{ review.user_login }}</p>
                     <p>Rating: {{ review.rating }}</p>
                     <div class="review-text">{{ review.text }}</div>

@@ -1,10 +1,9 @@
 from sqlalchemy import String, Column, Integer
 
-from data_base import Base as init_db
+from data_base import Base
 
 
-
-class Category(init_db):
+class Category(Base):
     __tablename__ = 'category'
     id = Column(Integer, primary_key=True)
     name = Column(String(50), unique=True, nullable=False)

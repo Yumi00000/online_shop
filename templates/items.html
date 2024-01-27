@@ -9,19 +9,23 @@
 <div class="items-container">
     <h1>Items</h1>
 
-    <form action="/shop/items" method="post" class="search-form">
+    <form action="{{ url_for('shop.search') }}" method="POST" class="search-form">
         <label for="search">Search items:</label>
-        <input type="text" id="search" name="search" placeholder="Enter keywords">
+        <input type="text" id="search" name="search" placeholder="search">
         <button type="submit" accesskey="/shop/search">Search</button>
     </form>
+    {% if search_res %}
+        {% set items = search_res %}
+        <button type="submit" onclick="items_page()">Clean search results</button>
+    {% endif %}
     {% if current_user %}
         <p>Hello {{ current_user.name }}</p>
     {% endif %}
     <a href="/shop/favorites" class="item_page_bottom">Wishlist</a>
     <a href="/shop/waitlist" class="item_page_bottom">Wait list</a>
+
     {% for item in items %}
         <div class="item">
-
             <h3>{{ item.name }}</h3>
             <p>Price: ${{ item.price }}</p>
             <p>Description: {{ item.description }}</p>
@@ -31,8 +35,12 @@
                 <input type="hidden" name="id" value="{{ item.id }}">
                 <button class="item_page_bottom">Add to Cart</button>
             </form>
+
         </div>
+
     {% endfor %}
+
+
 
     <div class="login-logout">
         {% if current_user %}
@@ -59,6 +67,10 @@
 
     function item_page(itemId) {
         window.location.href = '/shop/items/' + itemId;
+    }
+
+    function items_page() {
+        window.location.href = '/shop/items';
     }
 
     function navigateToCart() {

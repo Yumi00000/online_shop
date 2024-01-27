@@ -1,7 +1,8 @@
-from data_base import Base as init_db
 from sqlalchemy import Column, Boolean, String
+from data_base import Base
 
-class User(init_db):
+
+class User(Base):
     __tablename__ = 'user'
     login = Column(String(50), unique=True, primary_key=True)
     name = Column(String(50))

@@ -1,11 +1,7 @@
 from sqlalchemy import Column, String, Float, ForeignKey, Integer
+from data_base import Base
 
-from data_base import Base as init_db
-
-
-
-
-class Order(init_db):
+class Order(Base):
     __tablename__ = 'order'
     id = Column(Integer, primary_key=True)
     user_login = Column(String(50), ForeignKey('user.login'))
@@ -18,7 +14,6 @@ class Order(init_db):
         self.address = address
         self.order_total_price = order_total_price
         self.status_id = status_id
-
 
     def __repr__(self):
         return '<Order %r>' % self.id

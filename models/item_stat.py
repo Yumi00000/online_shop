@@ -1,9 +1,9 @@
 from sqlalchemy import String, Integer, Column
 
-from data_base import Base as init_db
+from data_base import Base
 
 
-class ItemsStat(init_db):
+class ItemsStat(Base):
     __tablename__ = 'items_stat'
     id = Column(Integer, primary_key=True)
     name = Column(String(50), unique=True, nullable=False)

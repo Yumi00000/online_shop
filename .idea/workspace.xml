@@ -4,8 +4,29 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="67770f3d-1b23-45d3-b50b-c85533b4e800" name="Changes" comment="edited reqs">
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+    <list default="true" id="67770f3d-1b23-45d3-b50b-c85533b4e800" name="Changes" comment="edited docker">
+      <change afterPath="$PROJECT_DIR$/app_factory.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c8be6986-4f05-4d3d-a4ea-67d7832e15e5.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/c8be6986-4f05-4d3d-a4ea-67d7832e15e5.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c8be6986-4f05-4d3d-a4ea-67d7832e15e5/storage_v2/_src_/database/online_shop.YtmpGw/schema/information_schema.FNRwLQ.zip" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/c8be6986-4f05-4d3d-a4ea-67d7832e15e5/storage_v2/_src_/database/online_shop.YtmpGw/schema/information_schema.FNRwLQ.zip" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c8be6986-4f05-4d3d-a4ea-67d7832e15e5/storage_v2/_src_/database/online_shop.YtmpGw/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/c8be6986-4f05-4d3d-a4ea-67d7832e15e5/storage_v2/_src_/database/online_shop.YtmpGw/schema/public.abK9xQ.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c8be6986-4f05-4d3d-a4ea-67d7832e15e5/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/c8be6986-4f05-4d3d-a4ea-67d7832e15e5/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_base.py" beforeDir="false" afterPath="$PROJECT_DIR$/data_base.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/cart.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/cart.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/category.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/category.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/compare.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/compare.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/feedback.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/feedback.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/item.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/item.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/item_stat.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/item_stat.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/order.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/order.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/orderitms.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/orderitms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/orderstatus.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/orderstatus.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/user.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/user.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/waitlist.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/waitlist.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/wishlist.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/wishlist.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/urls/admin_route.py" beforeDir="false" afterPath="$PROJECT_DIR$/urls/admin_route.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,6 +54,20 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "Yumi00000"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="f388e942-913c-44db-90cf-25597bc8e0bc" />
+        <option name="url" value="https://github.com/Yumi00000/online_shop.git" />
+      </UrlAndAccount>
+    </option>
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -46,12 +81,13 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Docker.docker-compose.yml: Compose Deployment.executor": "Run",
     "Flask server.Flask (app.py).executor": "Run",
     "Python.13e893bff3e8_.executor": "Run",
     "Python.admin_route.executor": "Run",
     "Python.connect_db.executor": "Run",
     "Python.env.executor": "Run",
-    "Python.online_shop.executor": "Run",
+    "Python.online_shop.executor": "Debug",
     "Python.user_route.executor": "Run",
     "RunOnceActivity.OpenDatabaseViewOnStart": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
@@ -73,7 +109,7 @@
     ]
   }
 }]]></component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.online_shop">
     <configuration name="online_shop" type="PythonConfigurationType" factoryName="Python">
       <module name="online_shop" />
       <option name="ENV_FILES" value="" />
@@ -97,6 +133,23 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration default="true" type="docker-deploy" factoryName="docker-compose.yml" temporary="true">
+      <deployment type="docker-compose.yml" />
+      <method v="2" />
+    </configuration>
+    <configuration name="docker-compose.yml: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="sourceFilePath" value="docker-compose.yml" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -116,7 +169,8 @@
       <workItem from="1705760645057" duration="19210000" />
       <workItem from="1705933207324" duration="79000" />
       <workItem from="1705933297165" duration="669000" />
-      <workItem from="1706010549458" duration="14014000" />
+      <workItem from="1706010549458" duration="16189000" />
+      <workItem from="1706312595699" duration="9376000" />
     </task>
     <task id="LOCAL-00001" summary="add postgres">
       <option name="closed" value="true" />
@@ -182,7 +236,15 @@
       <option name="project" value="LOCAL" />
       <updated>1706024707506</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="edited docker">
+      <option name="closed" value="true" />
+      <created>1706025195467</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1706025195467</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -204,21 +266,22 @@
     <MESSAGE value="add postgres" />
     <MESSAGE value="add another alchemy and alembic, created new migrations and new docker image" />
     <MESSAGE value="edited reqs" />
-    <option name="LAST_COMMIT_MESSAGE" value="edited reqs" />
+    <MESSAGE value="edited docker" />
+    <option name="LAST_COMMIT_MESSAGE" value="edited docker" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/urls/admin_route.py</url>
-          <line>13</line>
-          <option name="timeStamp" value="1" />
+          <url>file://$PROJECT_DIR$/app.py</url>
+          <line>18</line>
+          <option name="timeStamp" value="7" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/online_shop$online_shop.coverage" NAME="online_shop Coverage Results" MODIFIED="1706022335312" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/online_shop$online_shop.coverage" NAME="online_shop Coverage Results" MODIFIED="1706322746589" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/online_shop$user_route.coverage" NAME="user_route Coverage Results" MODIFIED="1706022128293" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/urls" />
     <SUITE FILE_PATH="coverage/online_shop$admin_route.coverage" NAME="admin_route Coverage Results" MODIFIED="1706022074182" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/urls" />
     <SUITE FILE_PATH="coverage/online_shop$connect_db.coverage" NAME="connect_db Coverage Results" MODIFIED="1705762538235" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
