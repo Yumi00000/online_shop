@@ -1,4 +1,4 @@
-from flask import Flask, redirect
+from flask import redirect
 from alembic.config import Config
 from alembic.script import ScriptDirectory
 import os
@@ -7,11 +7,16 @@ from urls.admin_route import admin_blueprint
 from urls.user_route import user_blueprint
 from urls.cart_route import cart_blueprint
 from urls.item_route import items_blueprint
+from flask import Flask
+
+
 app = Flask(__name__, template_folder='templates', static_folder='static')
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:postgres@172.19.0.2:5432/online_shop'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:postgres@db/online_shop'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.secret_key = "super secret key"
 alembic_script_location = os.path.join("alembic")
+app.config['CELERY_BROKER_URL'] = 'redis://localhost:6379/0'
+app.config['CELERY_RESULT_BACKEND'] = 'redis://localhost:6379/0'
 
 config = Config()
 config.set_main_option("script_location", alembic_script_location)

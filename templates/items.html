@@ -11,33 +11,59 @@
 
     <form action="{{ url_for('shop.search') }}" method="POST" class="search-form">
         <label for="search">Search items:</label>
-        <input type="text" id="search" name="search" placeholder="search">
-        <button type="submit" accesskey="/shop/search">Search</button>
+        <input type="text" id="search" name="search" placeholder="Search">
+        <button type="submit">Search</button>
     </form>
+
+    <form action="/shop/items" method="GET" onsubmit="addFilterAndCategory()">
+        <label for="filter">Choose filter:</label>
+        <select id="filter" name="filter">
+            <option value="Default">Default</option>
+            <option value="Lower price">Lower price</option>
+            <option value="Higher price">Higher price</option>
+        </select>
+
+        <label for="category">Choose category:</label>
+        <select id="category" name="category">
+            <option value="all">All Categories</option>
+            <option value="1">Electronics</option>
+            <option value="2">Fashion</option>
+            <option value="3">Home & Kitchen</option>
+            <option value="4">Health & Beauty</option>
+            <option value="5">Toys & Games</option>
+        </select>
+
+        <button type="submit">Submit</button>
+    </form>
+
+
+    {% if current_user %}
+        <p>Hello {{ current_user.name }}</p>
+    {% endif %}
+
+    <a href="/shop/favorites" class="item_page_bottom">Wishlist</a>
+    <a href="/shop/waitlist" class="item_page_bottom">Wait list</a>
+
     {% if search_res %}
         {% set items = search_res %}
         <button type="submit" onclick="items_page()">Clean search results</button>
     {% endif %}
-    {% if current_user %}
-        <p>Hello {{ current_user.name }}</p>
-    {% endif %}
-    <a href="/shop/favorites" class="item_page_bottom">Wishlist</a>
-    <a href="/shop/waitlist" class="item_page_bottom">Wait list</a>
 
     {% for item in items %}
         <div class="item">
             <h3>{{ item.name }}</h3>
             <p>Price: ${{ item.price }}</p>
             <p>Description: {{ item.description }}</p>
+            {% if item_ratings[item.id] is not none %}
+                <p>Rating: {{ '%.2f' % item_ratings[item.id] }}</p>
+            {% endif %}
             <button class="item_page_bottom" onclick="item_page('{{ item.id }}')">Item page</button>
             <form method="POST" action="/shop/cart/">
                 <label for="quantity">Add to cart:</label>
                 <input type="hidden" name="id" value="{{ item.id }}">
                 <button class="item_page_bottom">Add to Cart</button>
             </form>
-
         </div>
-
     {% endfor %}
 
 
@@ -76,6 +102,18 @@
     function navigateToCart() {
         // Navigate to the cart page
         window.location.href = '/shop/cart';
+    }
+
+    function addFilterAndCategory() {
+
+        var form = document.querySelector('form');
+        form.classList.add('filter-and-category');
+
+
+        var filterValue = document.getElementById('filter').value;
+        var categoryValue = document.getElementById('category').value;
+
+        form.action = '/shop/items?filter=' + encodeURIComponent(filterValue) + '&category=' + encodeURIComponent(categoryValue);
     }
 </script>
 </body>

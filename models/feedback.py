@@ -6,7 +6,7 @@ class Feedback(Base):
     id = Column(Integer, primary_key=True)
     item_id = Column(Integer, ForeignKey('item.id'))
     text = Column(String(250))
-    rating = Column(Integer)
+    rating = Column(Integer, unique=True)
     user_login = Column(String(50), ForeignKey('user.login'))
 
 

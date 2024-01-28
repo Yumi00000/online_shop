@@ -1,5 +1,4 @@
 from flask import Blueprint, request, render_template, session, redirect
-
 from data_base import db_session
 from models.cart import Cart
 from models.item import Item
@@ -66,12 +65,14 @@ def edit_oder_form():
 
     cart = db_session.query(Cart).filter_by(user_login=current_user.login).all()
     price = 0
+
     for cart in cart:
         if cart.quantity:
             item_id = cart.item_id
             quantity = cart.quantity
             for item in db_session.query(Item).filter_by(id=item_id).all():
                 price += item.price * quantity
-
+    db_session.add()
+    db_session.commit()
     if request.method == 'GET':
         return render_template('order_form.html', current_user=current_user.login, price=price)
