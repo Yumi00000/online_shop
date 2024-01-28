@@ -2,7 +2,9 @@ from flask import Blueprint, render_template, redirect, request, session
 
 from data_base import db_session
 from models.user import User
+
 user_blueprint = Blueprint('user', __name__)
+
 
 @user_blueprint.get('/login')
 def login_get():
@@ -41,10 +43,12 @@ def register():
         surname = request.form.get('surname')
         password = request.form.get('password')
         mobile_number = request.form.get('mobile_number')
+        email = request.form.get('email')
 
         # Validate form data here if needed
 
-        user = User(login=login, name=name, surname=surname, password=password, mobile_number=mobile_number)
+        user = User(login=login, name=name, surname=surname, password=password, mobile_number=mobile_number,
+                    email=email)
         db_session.add(user)
         db_session.commit()
         db_session.close()

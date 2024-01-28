@@ -8,10 +8,10 @@ from urls.user_route import user_blueprint
 from urls.cart_route import cart_blueprint
 from urls.item_route import items_blueprint
 from flask import Flask
-
+from celery import Celery
 
 app = Flask(__name__, template_folder='templates', static_folder='static')
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:postgres@db/online_shop'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:postgres@172.19.0.2:5432/online_shop'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.secret_key = "super secret key"
 alembic_script_location = os.path.join("alembic")

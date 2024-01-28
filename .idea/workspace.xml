@@ -4,22 +4,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="67770f3d-1b23-45d3-b50b-c85533b4e800" name="Changes" comment="edited docker">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+    <list default="true" id="67770f3d-1b23-45d3-b50b-c85533b4e800" name="Changes" comment="added compare">
+      <change afterPath="$PROJECT_DIR$/tasks.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/utills.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/c8be6986-4f05-4d3d-a4ea-67d7832e15e5.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/c8be6986-4f05-4d3d-a4ea-67d7832e15e5.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/c8be6986-4f05-4d3d-a4ea-67d7832e15e5/storage_v2/_src_/database/online_shop.YtmpGw/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/c8be6986-4f05-4d3d-a4ea-67d7832e15e5/storage_v2/_src_/database/online_shop.YtmpGw/schema/public.abK9xQ.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c8be6986-4f05-4d3d-a4ea-67d7832e15e5/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/c8be6986-4f05-4d3d-a4ea-67d7832e15e5/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data_base.py" beforeDir="false" afterPath="$PROJECT_DIR$/data_base.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/compare.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/compare.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/feedback.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/feedback.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/cart.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/cart.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/order.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/order.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/orderitms.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/orderitms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/user.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/user.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/items.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/items.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cart_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cart_page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/order_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/order_form.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/register.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/urls/cart_route.py" beforeDir="false" afterPath="$PROJECT_DIR$/urls/cart_route.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/urls/item_route.py" beforeDir="false" afterPath="$PROJECT_DIR$/urls/item_route.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/urls/user_route.py" beforeDir="false" afterPath="$PROJECT_DIR$/urls/user_route.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,6 +33,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="HTML File" />
         <option value="Python Script" />
       </list>
     </option>
@@ -72,38 +77,43 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Docker.docker-compose.yml: Compose Deployment.executor&quot;: &quot;Run&quot;,
-    &quot;Flask server.Flask (app.py).executor&quot;: &quot;Run&quot;,
-    &quot;Python.13e893bff3e8_.executor&quot;: &quot;Run&quot;,
-    &quot;Python.admin_route.executor&quot;: &quot;Run&quot;,
-    &quot;Python.connect_db.executor&quot;: &quot;Run&quot;,
-    &quot;Python.env.executor&quot;: &quot;Run&quot;,
-    &quot;Python.online_shop.executor&quot;: &quot;Debug&quot;,
-    &quot;Python.user_route.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenDatabaseViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/yumi/PycharmProjects/lucky_ticket&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;service.view.auto.scroll.from.source&quot;: &quot;true&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "Docker.Dockerfile.executor": "Run",
+    "Docker.docker-compose.yml.celery-worker: Compose Deployment.executor": "Run",
+    "Docker.docker-compose.yml.rabbitmq: Compose Deployment.executor": "Run",
+    "Docker.docker-compose.yml.web: Compose Deployment.executor": "Run",
+    "Docker.docker-compose.yml: Compose Deployment.executor": "Run",
+    "Flask server.Flask (app.py).executor": "Run",
+    "Python.13e893bff3e8_.executor": "Run",
+    "Python.admin_route.executor": "Run",
+    "Python.connect_db.executor": "Run",
+    "Python.env.executor": "Run",
+    "Python.online_shop.executor": "Debug",
+    "Python.user_route.executor": "Run",
+    "RunOnceActivity.OpenDatabaseViewOnStart": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "/home/yumi/PycharmProjects/lucky_ticket",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "service.view.auto.scroll.from.source": "true",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;postgresql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql"
     ]
   }
-}</component>
-  <component name="RunManager" selected="Python.online_shop">
+}]]></component>
+  <component name="RunManager" selected="Docker.Dockerfile">
     <configuration name="online_shop" type="PythonConfigurationType" factoryName="Python">
       <module name="online_shop" />
       <option name="ENV_FILES" value="" />
@@ -127,10 +137,22 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="Dockerfile" type="docker-deploy" factoryName="dockerfile" temporary="true" server-name="Docker">
+      <deployment type="dockerfile">
+        <settings>
+          <option name="sourceFilePath" value="Dockerfile" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
     <configuration default="true" type="docker-deploy" factoryName="docker-compose.yml" temporary="true">
       <deployment type="docker-compose.yml">
         <settings />
       </deployment>
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="docker-deploy" factoryName="dockerfile" temporary="true">
+      <deployment type="dockerfile" />
       <method v="2" />
     </configuration>
     <configuration name="docker-compose.yml: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
@@ -141,8 +163,51 @@
       </deployment>
       <method v="2" />
     </configuration>
+    <configuration name="docker-compose.yml.celery-worker: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="services">
+            <list>
+              <option value="celery-worker" />
+            </list>
+          </option>
+          <option name="sourceFilePath" value="docker-compose.yml" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <configuration name="docker-compose.yml.rabbitmq: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="services">
+            <list>
+              <option value="rabbitmq" />
+            </list>
+          </option>
+          <option name="sourceFilePath" value="docker-compose.yml" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <configuration name="docker-compose.yml.web: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="services">
+            <list>
+              <option value="web" />
+            </list>
+          </option>
+          <option name="sourceFilePath" value="docker-compose.yml" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Docker.Dockerfile" />
+        <item itemvalue="Docker.docker-compose.yml.celery-worker: Compose Deployment" />
+        <item itemvalue="Docker.docker-compose.yml.rabbitmq: Compose Deployment" />
+        <item itemvalue="Docker.docker-compose.yml.web: Compose Deployment" />
         <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
       </list>
     </recent_temporary>
@@ -168,7 +233,9 @@
       <workItem from="1706010549458" duration="16189000" />
       <workItem from="1706312595699" duration="9376000" />
       <workItem from="1706431006139" duration="12410000" />
-      <workItem from="1706443481395" duration="5354000" />
+      <workItem from="1706443481395" duration="16089000" />
+      <workItem from="1706651906071" duration="107000" />
+      <workItem from="1706652263457" duration="22591000" />
     </task>
     <task id="LOCAL-00001" summary="add postgres">
       <option name="closed" value="true" />
@@ -242,7 +309,23 @@
       <option name="project" value="LOCAL" />
       <updated>1706025195467</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="added search and filters">
+      <option name="closed" value="true" />
+      <created>1706450150512</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1706450150512</updated>
+    </task>
+    <task id="LOCAL-00011" summary="added compare">
+      <option name="closed" value="true" />
+      <created>1706460131409</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1706460131409</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -265,7 +348,9 @@
     <MESSAGE value="add another alchemy and alembic, created new migrations and new docker image" />
     <MESSAGE value="edited reqs" />
     <MESSAGE value="edited docker" />
-    <option name="LAST_COMMIT_MESSAGE" value="edited docker" />
+    <MESSAGE value="added search and filters" />
+    <MESSAGE value="added compare" />
+    <option name="LAST_COMMIT_MESSAGE" value="added compare" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/online_shop$online_shop.coverage" NAME="online_shop Coverage Results" MODIFIED="1706322746589" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />

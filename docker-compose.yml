@@ -11,10 +11,35 @@ services:
     environment:
       FLASK_APP: app.py
       FLASK_ENV: development
-      DATABASE_URL: "postgresql://yumi:postgres@172.18.0.2:5432/online_shop"
+      DATABASE_URL: "postgresql://yumi:postgres@172.19.0.2:5432/online_shop"  # Update the host to use the service name 'db'
+
   db:
     image: postgres:latest
     environment:
       POSTGRES_DB: online_shop
       POSTGRES_USER: yumi
       POSTGRES_PASSWORD: postgres
+
+  rabbitmq:
+    image: "rabbitmq:3-management"
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    environment:
+      RABBITMQ_DEFAULT_USER: "celeryuser"
+      RABBITMQ_DEFAULT_PASS: "celeryuser"
+
+  celery-worker:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      - rabbitmq
+    environment:
+      - BROKER_URL=pyamqp://celeryuser:celeryuser@rabbitmq:5672//
+      - CELERY_RESULT_BACKEND=rpc://
+    command: celery -A tasks worker
+
+
+
+

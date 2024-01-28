@@ -7,7 +7,7 @@ class Cart(Base):
     id = Column(Integer, primary_key=True)
     user_login = Column(String(50), ForeignKey('user.login'))
     item_id = Column(Integer, ForeignKey('item.id'))
-    quantity = Column(Integer, unique=True)
+    quantity = Column(Integer)
 
     def __init__(self, user_login, item_id, quantity):
         self.user_login = user_login

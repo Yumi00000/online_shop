@@ -4,18 +4,43 @@
     <meta charset="UTF-8">
     <title>Items</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        .wrap {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 80%;
+            margin: 50px auto;
+        }
+
+        input[type="number"] {
+            width: 45%;
+            padding: 5px;
+            font-size: 16px;
+        }
+
+        p {
+            font-size: 18px;
+            margin: 0;
+        }
+    </style>
 </head>
+
 <body>
+
 <div class="items-container">
     <h1>Items</h1>
 
-    <form action="{{ url_for('shop.search') }}" method="POST" class="search-form">
+    <form action="/shop/items" method="GET" class="search-form" onsubmit="addSearch()">
         <label for="search">Search items:</label>
         <input type="text" id="search" name="search" placeholder="Search">
         <button type="submit">Search</button>
     </form>
 
     <form action="/shop/items" method="GET" onsubmit="addFilterAndCategory()">
+        <p>Min Price: $<input type="number" id="minPrice" name="min_price" value="0"></p>
+        <p>Max Price: $<input type="number" id="maxPrice" name="max_price" value="5000"></p>
+
         <label for="filter">Choose filter:</label>
         <select id="filter" name="filter">
             <option value="Default">Default</option>
@@ -32,9 +57,18 @@
             <option value="4">Health & Beauty</option>
             <option value="5">Toys & Games</option>
         </select>
-
+        <label for="status">Choose status:</label>
+        <select id="status" name="status">
+            <option value="all">All status</option>
+            <option value="1">In Stock</option>
+            <option value="2">Out of Stock</option>
+            <option value="3">On Sale</option>
+            <option value="4">Coming Soon</option>
+        </select>
         <button type="submit">Submit</button>
     </form>
+
+
 
 
     {% if current_user %}
@@ -58,10 +92,18 @@
                 <p>Rating: {{ '%.2f' % item_ratings[item.id] }}</p>
             {% endif %}
             <button class="item_page_bottom" onclick="item_page('{{ item.id }}')">Item page</button>
+
+
+            <form method="POST" action="{{ url_for('shop.add_to_compare') }}">
+                <input type="hidden" name="item_id" value="{{ item.id }}">
+                <button type="submit" class="item_page_bottom">Add to Compare</button>
+            </form>
+
+
             <form method="POST" action="/shop/cart/">
                 <label for="quantity">Add to cart:</label>
                 <input type="hidden" name="id" value="{{ item.id }}">
-                <button class="item_page_bottom">Add to Cart</button>
+                <button type="submit" class="item_page_bottom">Add to Cart</button>
             </form>
         </div>
     {% endfor %}
@@ -104,16 +146,29 @@
         window.location.href = '/shop/cart';
     }
 
-    function addFilterAndCategory() {
-
+    function addSearch() {
         var form = document.querySelector('form');
-        form.classList.add('filter-and-category');
+        form.classList.add('search');
+        var searchValue = document.getElementById('search').value;
+        form.action = '/shop/items?search=' + encodeURIComponent(searchValue);
+    }
 
 
+    function addFilterAndCategory() {
+        var form = document.querySelector('form');
+        form.classList.add('filter-and-category-and-status');
+
+        var minPrice = document.getElementById('minPrice').value;
+        var maxPrice = document.getElementById('maxPrice').value;
         var filterValue = document.getElementById('filter').value;
         var categoryValue = document.getElementById('category').value;
+        var statusValue = document.getElementById('status').value;
 
-        form.action = '/shop/items?filter=' + encodeURIComponent(filterValue) + '&category=' + encodeURIComponent(categoryValue);
+        form.action = '/shop/items?min_price=' + encodeURIComponent(minPrice) +
+            '&max_price=' + encodeURIComponent(maxPrice) +
+            '&filter=' + encodeURIComponent(filterValue) +
+            '&category=' + encodeURIComponent(categoryValue) +
+            '&status=' + encodeURIComponent(statusValue);
     }
 </script>
 </body>

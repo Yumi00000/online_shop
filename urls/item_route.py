@@ -1,5 +1,5 @@
 from flask import Blueprint, request, session, render_template, url_for, redirect
-from sqlalchemy import func, desc
+from sqlalchemy import func, desc, and_
 
 from data_base import db_session
 from models.feedback import Feedback
@@ -61,7 +61,8 @@ def items_page():
     user_login = session.get('login')
     current_user = db_session.query(User).filter_by(login=user_login).first()
 
-    items = db_session.query(Item).all()
+    items_query = db_session.query(Item)
+    items = items_query.all()
 
     item_ratings = {}
     for item in items:
@@ -70,7 +71,15 @@ def items_page():
 
     filter_param = request.args.get('filter')
     category_param = request.args.get('category')
-
+    min_price_param = request.args.get('min_price')
+    max_price_param = request.args.get('max_price')
+    search_param = request.args.get('search')
+    status_param = request.args.get('status')
+    if search_param:
+        items = db_session.query(Item).filter(Item.name.ilike(f"%{search_param}%")).all()
+    if min_price_param is not None and max_price_param is not None:
+        items = db_session.query(Item).filter(
+            and_(Item.price >= float(min_price_param), Item.price <= float(max_price_param))).all()
     if filter_param:
         filter_mappings = {
             'Lower price': Item.price,
@@ -83,6 +92,8 @@ def items_page():
             items = db_session.query(Item).order_by(order_by).all()
     if category_param and category_param != 'all':
         items = db_session.query(Item).filter_by(category=category_param).all()
+    if status_param and status_param != 'all':
+        items = db_session.query(Item).filter_by(status=status_param).all()
 
     return render_template('items.html', current_user=current_user, items=items, item_ratings=item_ratings)
 

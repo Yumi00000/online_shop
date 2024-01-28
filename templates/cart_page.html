@@ -11,21 +11,19 @@
     {% if current_user and cart %}
         {% for cart_item in cart %}
             <div class="item">
-                {% set item_id = cart_item.item_id %}
-                {% set item = db_session.query(Item).filter_by(id=item_id).first() %}
                 <h3>User name: {{ cart_item.user_login }}</h3>
                 <p>Quantity: {{ cart_item.quantity }}</p>
-                <p>Item name: {{ item.name }}</p>
-                <p>Item description: {{ item.description }}</p>
-                <p>Price: ${{ item.price }}</p>
+                <p>Item name: {{ cart_item.name }}</p>
+                <p>Item description: {{ cart_item.description }}</p>
+                <p>Price: ${{ cart_item.price }}</p>
                 <div class="item-buttons">
                     <form method="POST" action="/shop/cart/delete">
-                        <input type="hidden" name="id" value="{{ item.id }}">
+                        <input type="hidden" name="id" value="{{ cart_item.id }}">
                         <input type="hidden" name="_method" value="DELETE">
                         <button class="delete-button">Delete Item</button>
                     </form>
                     <form method="POST" action="/shop/cart/">
-                        <input type="hidden" name="id" value="{{ item.id }}">
+                        <input type="hidden" name="id" value="{{ cart_item.id }}">
                         <button class="add-button">Add more items</button>
                     </form>
                 </div>

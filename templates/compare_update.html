@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compare Update</title>
+</head>
+<body>
+<h1>Compare Update</h1>
+
+
+<ul>
+    {% for item in items_list %}
+        <li>
+            <strong>{{ item.name }}</strong> - {{ item.description }}
+            - {{ item.price }}
+            - {{ item.status }}
+        </li>
+    {% endfor %}
+</ul>
+
+<p>Compare ID: {{ cmp_id }}</p>
+<a href="/shop/items">Go to Items</a>
+</body>
+</html>

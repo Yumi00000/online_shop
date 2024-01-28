@@ -9,7 +9,7 @@
 <body>
 <div class="order-container">
     <h1>Order Form</h1>
-    <form action="/submit_order" method="post">
+    <form action="/shop/cart/order" method="POST">
         <div class="form-group">
             <label for="user_login">User Login:</label>
             <p>{{ current_user }}</p>
@@ -21,8 +21,6 @@
             <input type="text" id="address" name="address" required>
         </div>
 
-        <!-- Displayed but non-submitted fields -->
-
 
         <div class="form-group">
             <label for="order_total_price">Order Total Price:</label>
@@ -31,7 +29,7 @@
 
 
         <div class="form-group">
-            <button type="submit" disabled>Place Order</button>
+            <button type="submit" >Place Order</button>
         </div>
     </form>
 </div>
